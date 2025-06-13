@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/03.joinHelldiver.css">
+</head>
+<body>
+    <div th:if="${error}" th:text="${error}" style="color:red"></div>
+    <div id="wrap">
+        <div class="box">
+            <div class="logo">
+                <a href="00.main_page.html">
+                    <img src="/img/logo.webp" alt="logo">
+                </a>
+            </div>
+            <form action="/register" method="post">
+                <div class="sec sect1">
+                    <fieldset>
+                        <legend>아이디/비밀번호 입력</legend>
+                        <div class="login_info">
+                            <input type="text" placeholder="이름을 작성해주세요" name="name" id="name" class="login_info1">
+                            <input type="text" placeholder="이메일을 입력하세요" name="email" id="email" class="login_info1">
+                            <input type="password" placeholder="비밀번호를 입력하세요" name="pwd" id="pwd" class="login_info1" value="">
+                            <input type="password" placeholder="비밀번호를 다시 입력하세요" name="pwdchk" id="pwdchk" class="login_info1" value="">
+                            <input type="text" placeholder="사이트에서 사용할 닉네임을 입력하세요" name="nickname" id="nickname" class="login_info1">
+                        </div>
+                    </fieldset>
+                </div>
+                <input type="submit" value="가입하기" onclick="chk()" class="submit1">
+            </form>
+        </div>
+    </div>
+<script src="/js/helldiverJava.js"></script>
+</body>
+</html>

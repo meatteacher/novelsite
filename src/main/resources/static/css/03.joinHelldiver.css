@@ -1,0 +1,76 @@
+body {
+    margin: 0;
+    font-size: 16px;
+    font-family: "Pretendard", sans-serif;
+    user-select:none
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+/* 박스 틀 */
+
+.box {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -60%);
+    width: 100%;
+    max-width: 400px;
+}
+
+form {
+    overflow: hidden;
+    box-shadow: 3px 3px 10px 1px rgba(0, 0, 0, 0.3);
+    margin: 0 auto;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.logo{
+    text-align: center;
+}
+
+fieldset {
+    padding: 20px 10px;
+    border-color: #d6d6d6;
+    border-style: dashed;
+    margin-bottom: 16px;
+}
+
+.submit1 {
+    width: 100%;
+    height: 50px;
+    background: #2a53b2;
+    color: white;
+    border: none;
+}
+
+/* sec1 */
+.login_info1{
+    width: 100%;
+    height: 50px;
+    margin-bottom: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+}
+
+.email_box {
+    display: flex;
+}
+
+.chk_code {
+    height: 50px;
+    margin-left: 10px;
+    background: #2b52b2;
+    color: white;
+    border: none;
+}

@@ -1,0 +1,419 @@
+body {
+    margin: 0;
+    font-size: 16px;
+    font-family: "Pretendard", sans-serif;
+    height: 2000px;
+    user-select:none
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+/* 헤더 */ 
+.header {
+    background: #fff;
+    width: 1024px;
+    
+    position: fixed;
+    right: 50%;
+    margin-right: -640px;
+    left: unset;
+    max-width: 1024px;
+    z-index: 99;
+
+    display: flex;
+    
+}
+
+.inner_menu {
+    width: 100%;
+    height: 68px;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left_header_menu {
+    display: flex;
+}
+
+.header  img {
+    width: 24px;
+    height: 24px;
+    margin-left: 16px;
+}
+
+.middle_title {
+    height: 68px;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+}
+
+.middle_title div {
+    display: block;
+    width: 200%;
+    height: 68px;
+
+    position: absolute;
+    overflow: hidden;
+
+    animation: marquee 15s linear infinite;
+}
+
+.middle_title h3 {
+    float: left;
+    width: 50%;
+    line-height: 34px;
+}
+
+@keyframes marquee {
+    0% { left: 0; }
+    100% { left: -100%; }
+}
+
+.right_header_menu {
+    display: flex;
+}
+
+/* 어사이드 */
+
+.main_Wrap{
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1280px;
+    height: 2000px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    background-color: #fff;
+}
+
+.left_menu {
+    background: #fff;
+    width: 236px;
+    height: 800px;
+    color: #595959;
+    position: sticky;
+    top: 0;
+    left: 0;
+    scrollbar-width: none;
+}
+
+.logo {text-align: center;}
+
+.left_menu img {
+    width: 200px;
+}
+
+.left_menu li {
+    width: 200px;
+    height: 46px;
+}
+
+.Q_menu {
+    border-bottom: 1px solid #ededed;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+}
+
+.qmenu > a {
+    display: flex;
+    align-items: center;
+}
+
+.qmenu img {
+    width: 28px;
+    height: 28px ;
+}
+
+.menu_Q {
+    border-bottom: 1px solid #ededed;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+}
+
+.menuq a {
+    display: flex;
+    align-items: center;
+}
+
+.menuq img {
+    width: 28px;
+    height: 28px ;
+}
+
+/* 본문 - 백그라운드 */
+
+.sub_box{
+    /* padding-left: 256px; */
+    padding-top: 68px;
+    width: 1024px;
+    position: relative;
+    padding-bottom: 40px;
+}
+
+.bg_img {
+    /* background-image: url(../port/pyoji/0.jpg); */
+    background-size: 140% auto;
+    background-repeat: no-repeat;
+    filter: blur(20px);
+    height: 260px;
+}
+
+.pyo_back {
+    overflow: hidden;
+
+}
+
+/* 본표지 */
+
+.pyoji_set{
+    position: relative;
+    margin-bottom: 110px;
+}
+
+.pyoji {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 50px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.pyoji > .img {
+    margin: 0 auto;
+    width: 200px;
+    height: 304px;
+}
+
+.pyoji img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* 소개 */
+
+.book_info{
+    padding: 0 20px 12px;
+    margin-bottom: 10px;
+}
+
+.sort {
+    font-size: 14px;
+    display: flex;
+    color: #595959;
+    margin-bottom: 4px;
+}
+
+.event {
+    position: relative;
+    padding-left: 10px;
+}
+
+.event::before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: 4px;
+    width: 2px;
+    height: 2px;
+    border-radius: 100%;
+    background-color: #cfcfcf;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #3a3a3a;;
+    margin-bottom: 8px;
+}
+
+.artist {
+    display: flex
+;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 15px;
+    color: #3a3a3a;;
+}
+
+.artist > img {
+    margin-right: 4px;
+    width: 16px;
+    height: auto;
+}
+
+.scale {
+    display: flex;
+    align-items: center;
+    margin: 0 -10px;
+}
+
+.item {
+    padding: 0 10px;
+    display: flex
+;
+    align-items: center;
+}
+
+.icon > img {
+    width: 20px;
+    height: 20px;
+    margin-right: 4px;
+    vertical-align: top;
+}
+
+.num {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -.5px;
+    line-height: 20px;
+}
+
+/* 소개 */
+
+.sogae {
+    padding: 10px 2px 10px 5px;
+    margin: 0 20px;
+    border-top: 1px solid #f5f5f5;;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.sogae > p {
+    font-size: 16px;
+    color: #595959;;
+}
+
+/*리스트 탭*/
+
+.chapter {
+    position: relative;
+    height: auto;
+    min-height: 100%;
+    border-top: 10px solid #fafafa;;
+}
+
+.chap_tab > ul {
+    display: flex;
+    width: 100%;
+    padding-left: 0px;
+}
+
+.chap_tab li {
+    width: 50%;
+    text-align: center;
+    border-bottom: 2px solid #989898;
+    font-weight: 500;
+    color: #989898;
+}
+
+li > a {
+    height: 60px;
+    line-height: 62px;
+
+}
+
+.chap_tab .active {
+    color:#151515;
+    border-bottom: 2px solid #151515;
+}
+
+/* 편수 리스트 - 배열블럭 */
+
+.list_tab {
+    display: none;
+    margin-right: 20px;
+}
+.select {
+    display: block;
+}
+
+.list_util {
+    display: flex;
+    justify-content: space-between;
+}
+
+.list > ul{
+    display: flex;
+    margin: 0;
+}
+
+.list a {
+    color: #989898;
+    height: 26px;
+    font-size: 14px;
+    line-height: 26px;
+}
+
+.list ul li {
+    position: relative;
+    padding-left: 10px;
+}
+
+.list ul li:after {
+    content: "・";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    text-align: center;
+    width: 10px;
+    height: 10px;
+    font-size: 10px;
+}
+
+/* 편수 리스트 - 에피소드 */
+
+.episode_item > a {
+    padding: 12px 0 12px 15px;
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    color: #3a3a3a;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.down {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 48px;
+}
+
+.down > img {
+    width: 24px;
+}
+
+.epi_info {
+    display: flex;
+    font-size: 12px;
+    color: #595959;
+}
+
+.epi_info > span {
+    line-height: 20px;
+    padding-right: 12px;
+}
+
+.epi_scale {
+    display: flex;
+}
+
+.epi_scale img {
+    width: 14px;
+    height: 14px;
+}

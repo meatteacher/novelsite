@@ -1,0 +1,110 @@
+body {
+    margin: 0;
+    font-size: 16px;
+    font-family: "Pretendard", sans-serif;
+    background-color: #c3dda8;
+    user-select:none
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+/* 메뉴바 숨기기 */
+
+.hidden {
+    display: none;
+}
+
+/* 설정바 */
+
+.upper {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .8);
+    color: #fff;
+    z-index: 10;
+    height: 72px;
+    padding: 16px 50px;
+
+    box-sizing: border-box;
+}
+
+.upper img {
+    width: 40px;
+    height: 40px;
+}
+
+.left_menu {
+    width: 25%;
+}
+
+.right_menu {
+    width: 25%;
+    text-align: right;
+}
+
+.middle_title {
+    width: 50%;
+    text-align: center;
+    font-size: 21px;
+    margin-top: -8px;
+    padding: 0 8px;
+}
+
+.middle_title > p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.middle_title > p:first-child {
+    font-size: 16px;
+    color: #b6b6b6;
+}
+
+/* 설정바 하단 */
+
+.bottom {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .8);
+    color: #fff;
+    z-index: 10;
+    height: 72px;
+    padding: 16px 50px;
+    bottom: 0;
+
+    box-sizing: border-box;
+}
+
+.middle_moving {
+
+    width: 50%;
+    text-align: center;
+}
+
+.bottom img {
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+}
+
+
+/* 뷰 화면 */
+
+.real_view {
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.episode{
+    padding: 150px 24px;
+}

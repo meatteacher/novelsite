@@ -1,0 +1,21 @@
+Entity		1개 찾고, 없으면 null
+Optional<T>	1개 찾고, 없을 수도 있음
+List<T>		여러 개 (0~N개)
+Page<T>		여러 개 + 페이징 (게시판 목록 등)
+Slice<T>		여러 개 + 더보기/스크롤
+Stream<T>	대용량/하나씩 처리
+Boolean		존재 체크
+long/int		개수 체크
+Projection	DTO로 바로
+
+findBy		~로 찾기		findByEmail
+And/Or		그리고/또는	findByNameAndAge
+Containing	포함		findByTitleContaining
+StartingWith	~로 시작		findByNameStartingWith
+EndingWith	~로 끝남		findByNameEndingWith
+OrderBy~Asc/Desc	정렬		findByOrderByCreatedAtDesc
+Between	~	사이에		findByCreatedAtBetween
+GreaterThan	~보다 큼		findByAgeGreaterThan
+LessThan		~보다 작음	findByViewCountLessThan
+Not		~이 아닌		findByNameNot
+In		리스트 내에	findByStatusIn

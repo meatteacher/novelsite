@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/novelStyle.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="/js/novelData.js"></script>
+</head>
+<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+<div id="wrap">
+    <div class="menu">
+        <button class="close">X</button>
+        <div class="my_room">
+            <h3><a href="04.loginhaera.html">로그인</a>을 해주세요</h3>
+            <div class="bigroom">
+                <div class="room1">이벤트</div>
+                <div class="room1">공지사항</div>
+            </div>
+        </div>
+        <div class="menu_icon">
+            <ul>
+                <li>
+                    <a href="#">
+                        <div class="img">
+                            <img src="/img/itemshp.png" alt="아이템샵">
+                        </div>
+                        <p>아이템샵</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="img">
+                            <img src="/img/refill.png" alt="리필">
+                        </div>
+                        <p>무료 충전소</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="img">
+                            <img src="/img/sunho.png" alt="선호">
+                        </div>
+                        <p>선호장르</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="img">
+                            <img src="/img/supyung.png" alt="서평">
+                        </div>
+                        <p>작품 서평</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="img">
+                            <img src="/img/post.png" alt="포스트">
+                        </div>
+                        <p>조아라 포스트</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="img">
+                            <img src="/img/gesipan.png" alt="">
+                        </div>
+                        <p>자유게시판</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="img">
+                            <img src="/img/cpdeongrock.png" alt="쿠폰등록">
+                        </div>
+                        <p>쿠폰 등록</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="img">
+                            <img src="/img/recommend.png" alt="뭐읽지">
+                        </div>
+                        <p>뭐 읽을까?
+                        </p>
+                    </a>
+                </li>
+            </ul>
+            <div class="stu_banner">
+                <a href="#">
+                    <img src="/img/studio.png" alt="J스튜디오">
+                </a>
+            </div>
+        </div>
+        <div class="help_call">
+            <div class="jemock">
+                <p>고객센터</p>
+                <img src="/img/oligi.png" alt="메뉴올리기">
+            </div>
+            <div class="help_list">
+                <ul>
+                    <li>
+                        <a href="#">
+                            자주하는 질문
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            1:1 문의
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            작가 지원 정책
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            언론 보도
+                        </a>
+                    </li>
+                </ul>
+                <div class="information">
+                    <div class="service-info">
+                        <dl>
+                            <dt> 고객센터</dt>
+                            <dd>1544-5935</dd>
+                        </dl>
+                        <dl>
+                            <dt> 운영시간</dt>
+                            <dd> 평일 10:00 ~ 17:00 (주말 및 공휴일 휴무)</dd>
+                        </dl>
+                        <dl>
+                            <dt>점심시간</dt>
+                            <dd>12:30 ~ 13:30</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="login_pan">
+            <ul>
+                <li>
+                    <a href="03.joinHelldiver.html">
+                        회원가입
+                    </a>
+                </li>
+                <li>
+                    <a href="04.loginhaera.html">
+                        로그인
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="header">
+        <div class="topHeader">
+            <div class="icon_box">
+                <div class="left_Icon">
+                    <a href="#">
+                        <img src="/img/novel_btn.png" alt="novel_button">
+                    </a>
+                    <a href="#">
+                        <img src="/img/comix_btn.png" alt="comix_button">
+                    </a>
+                </div>
+                <div class="right_Icon">
+                    <a th:href="@{/login}" class="login">
+                        로그인
+                    </a>
+                    <a th:href="@{/register}" class="join">
+                        회원가입
+                    </a>
+                    <a href="#" class="search">
+                        <img src="/img/ico_top_search.png" alt="search_icon">
+                    </a>
+                    <a href="#" class="menu-toggle">
+                        <img src="/img/ico_top_menu.png" alt="menu">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="nav">
+            <ul>
+                <li class="nav_menu select" onclick="tmp2(this)">
+                    <a href="#">추천</a>
+                </li>
+                <li class="nav_menu " onclick="tmp2(this)">
+                    <a href="#">판타지</a>
+                </li>
+                <li class="nav_menu " onclick="tmp2(this)">
+                    <a href="#">로맨스</a>
+                </li>
+                <li class="nav_menu " onclick="tmp2(this)">
+                    <a href="#">대체역사</a>
+                </li>
+                <li class="nav_menu " onclick="tmp2(this)">
+                    <a href="#">일상</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="main_Wrap">
+        <div class="left_menu">
+            <div class="logo">
+                <a href="00.main_page.html">
+                    <img src="/img/logo.webp" alt="joara_logo">
+                </a>
+            </div>
+            <div class="Q_menu">
+                <ul>
+                    <li class="qmenu">
+                        <a href="#">
+                            <img src="/img/bone.jpg" alt="bone">
+                            <p>조아라본</p>
+                        </a>
+                    </li>
+                    <li class="qmenu">
+                        <a href="#">
+                            <img src="/img/gift.gif" alt="bone">
+                            <p>대여권선물</p>
+                        </a>
+                    </li>
+                    <li class="qmenu">
+                        <a href="05.gesipan.html">
+                            <img src="/img/cumo.jpg" alt="bone">
+                            <p>자유게시판</p>
+                        </a>
+                    </li>
+                    <li class="qmenu">
+                        <a href="#">
+                            <img src="/img/like.jpg" alt="bone">
+                            <p>선호장르</p>
+                        </a>
+                    </li>
+                    <li class="qmenu">
+                        <a href="#">
+                            <img src="/img/write.gif" alt="bone">
+                            <p>작품등록</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu_Q">
+                <ul>
+                    <li class="menuq">
+                        <a href="#">
+                            <img src="/img/event.png" alt="">
+                            <p>이벤트</p>
+                        </a>
+                    </li>
+                    <li class="menuq">
+                        <a href="#">
+                            <img src="/img/fnish.png" alt="">
+                            <p>완결작품</p>
+                        </a>
+                    </li>
+                    <li class="menuq">
+                        <a href="#">
+                            <img src="/img/new.png" alt="">
+                            <p>최신작품</p>
+                        </a>
+                    </li>
+                    <li class="menuq">
+                        <a href="#">
+                            <img src="/img/best.png" alt="">
+                            <p>베스트</p>
+                        </a>
+                    </li>
+                    <li class="menuq">
+                        <a href="#">
+                            <img src="/img/savepo.png" alt="">
+                            <p>보관함</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="store">
+                <ul>
+                    <li class="store">아이템샵</li>
+                    <li class="store">딱지무료충전</li>
+                </ul>
+            </div>
+        </div>
+        <div class="main_R">
+            <div class="tab__content-wrapper">
+                <div id="tab1" class="tab__content active">
+                    <div class="outer">
+                        <div class="swiper mySwiper swiper1">
+                            <div class="swiper-wrapper"></div>
+                        </div>
+                        <div class="next">
+                            <img src="/img/right.png" alt="">
+                        </div>
+                        <div class="prev">
+                            <img src="/img/left.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div id="tab2" class="tab__content">
+                    <div class="outer">
+                        <div class="swiper mySwiper swiper1">
+                            <div class="swiper-wrapper"></div>
+                        </div>
+                        <div class="next">
+                            <img src="/img/right.png" alt="">
+                        </div>
+                        <div class="prev">
+                            <img src="/img/left.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div id="tab3" class="tab__content">
+                    <div class="outer">
+                        <div class="swiper mySwiper swiper1">
+                            <div class="swiper-wrapper"></div>
+                        </div>
+                        <div class="next">
+                            <img src="/img/right.png" alt="">
+                        </div>
+                        <div class="prev">
+                            <img src="/img/left.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div id="tab4" class="tab__content">
+                    <div class="outer">
+                        <div class="swiper mySwiper swiper1">
+                            <div class="swiper-wrapper"></div>
+                        </div>
+                        <div class="next">
+                            <img src="/img/right.png" alt="">
+                        </div>
+                        <div class="prev">
+                            <img src="/img/left.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div id="tab5" class="tab__content">
+                    <div class="outer">
+                        <div class="swiper mySwiper swiper1">
+                            <div class="swiper-wrapper"></div>
+                        </div>
+                        <div class="next">
+                            <img src="/img/right.png" alt="">
+                        </div>
+                        <div class="prev">
+                            <img src="/img/left.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="novel_Sec">
+                <div class="sec_head">
+                    <div class="sec_title">
+                        마지막까지 달린 작품 한번 더! 완결작
+                    </div>
+                </div>
+                <div class="sec_list">
+                    <div class="swiper mySwiper swiper2">
+                        <div class="swiper-wrapper"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="novel_Sec">
+                <div class="sec_head">
+                    <div class="sec_title">
+                        빛나는 아이디어속 바뀐 역사 - 대체역사
+                    </div>
+                </div>
+                <div class="sec_list">
+                    <div class="swiper mySwiper swiper2">
+                        <div class="swiper-wrapper"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="novel_Sec">
+                <div class="sec_head">
+                    <div class="sec_title">
+                        잔잔한 일상 이야기!
+                    </div>
+                </div>
+                <div class="sec_list">
+                    <div class="swiper mySwiper swiper2">
+                        <div class="swiper-wrapper"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="novel_Sec">
+                <div class="sec_head">
+                    <div class="sec_title">
+                        이용권? 구매? 원하는대로 이용가능!
+                    </div>
+                </div>
+                <div class="sec_list">
+                    
+                </div>
+            </div>
+            <div class="novel_Sec">
+                <div class="sec_head">
+                    <div class="sec_title">
+                        단행본 할인 작품 챙겨 봐요📕
+                    </div>
+                </div>
+                <div class="sec_list">
+                    
+                </div>
+            </div>
+            <div class="novel_Sec">
+                <div class="sec_head">
+                    <div class="sec_title">
+                        후원쿠폰 베스트
+                    </div>
+                </div>
+                <div class="sec_list">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="main_footer">
+            <div class="inner_main_foot">
+                <div class="calling">
+                    <div class="tit">고객센터</div>
+                    <div class="cunect">
+                        <p>customer@joara.com <span>/</span> 1544-5935</p>
+                        <div class="time">운영시간 - 평일 10:00 ~ 17:00 (주말 및 공휴일 휴무) / 점심시간 - 12:30 ~ 13:30</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="info_footer"></div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="/js/novelJava.js"></script>
+</body>
+</html>

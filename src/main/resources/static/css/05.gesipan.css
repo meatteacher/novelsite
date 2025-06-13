@@ -1,0 +1,270 @@
+body {
+    margin: 0;
+    font-size: 16px;
+    font-family: "Pretendard", sans-serif;
+    user-select:none;
+
+    font-style: normal;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+/* 헤더 */
+
+.header {
+    background: #fff;
+    width: 1024px;
+    
+    position: fixed;
+    right: 50%;
+    margin-right: -640px;
+    left: unset;
+    max-width: 1024px;
+    z-index: 99;
+}
+
+.inner {
+    position: relative;
+    
+    display: flex;
+    justify-content: space-between;
+
+    align-items: center;
+
+    height: 68px;
+        padding: 0 20px;
+}
+
+.prev > a {
+    display: block;
+    width: 24px;
+    height: 24px;
+}
+
+.prev img {
+    width: 100%;
+    height: auto;
+}
+
+.sub_title {
+    font-size: 20px;
+    line-height: 68px;
+
+    color: #000;;
+}
+
+/* 어사이드 */
+
+.main_Wrap{
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1280px;
+    height: 2000px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    background-color: #fff;
+}
+
+.left_menu {
+    background: #fff;
+    width: 236px;
+    height: 800px;
+    color: #595959;
+    position: sticky;
+    top: 0;
+    left: 0;
+    scrollbar-width: none;
+}
+
+.logo {text-align: center;}
+
+.left_menu img {
+    width: 200px;
+}
+
+.left_menu li {
+    width: 200px;
+    height: 46px;
+}
+
+.Q_menu {
+    border-bottom: 1px solid #ededed;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+}
+
+.qmenu > a {
+    display: flex;
+    align-items: center;
+}
+
+.qmenu img {
+    width: 28px;
+    height: 28px ;
+}
+
+.menu_Q {
+    border-bottom: 1px solid #ededed;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+}
+
+.menuq a {
+    display: flex;
+    align-items: center;
+}
+
+.menuq img {
+    width: 28px;
+    height: 28px ;
+}
+
+/* 메인 */
+
+.main_right {
+    width: 1024px;
+    margin: 0 auto;
+    padding: 68px 0 0;
+    min-height: calc(100vh - 108px);
+    box-sizing: border-box;
+    padding-left: 10px;
+    margin-left: 20px;
+}
+
+.sub_tab {
+    position: sticky;
+    top: 68px;
+    width: 100%;
+    padding-bottom: 10px;
+    background-color: #fff;
+    z-index: 10;
+    overflow: hidden;
+}
+
+.tab_menu > ul{
+    padding: 12px 20px 0;
+    margin: 0;
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+}
+
+.tab_menu li {
+    width: 70px;
+    height: 45px;
+    margin-left: 8px;
+    text-align: center;
+    font-size: 16px;
+    line-height: 44px;
+    border-radius: 22px;
+    border: 1px solid #f5f5f5;
+    background-color: #f5f5f5;
+    color: #989898;
+}
+
+.tab_menu .active  {
+    border-color: #151515;
+    background: #fff;
+    color: #151515;
+}
+
+/* 본문 리스트 */
+
+.board_list > ul {
+    border-top: 1px solid #ededed;
+}
+
+.board_list li {
+    padding: 0;
+    border-bottom: 1px solid #ededed;
+    box-sizing: border-box;
+}
+
+.board_list a {
+    position: relative;
+    display: block;
+    padding: 16px 10px;
+}
+
+.title {
+    display: block;
+    max-height: none;
+    white-space: nowrap;
+    height: 1.5em;
+
+    font-size: 16px;
+}
+
+.icon_new {
+    display: inline-block;
+    vertical-align: top;
+
+    margin-right: 4px;
+}
+
+.icon_new > img {
+    width: 30px;
+    height: 12px;
+}
+
+.info { 
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    font-size: 14px;
+    letter-spacing: -.5px;
+    color: #989898;
+}
+
+.info > span {
+    position: relative;
+    padding-left: 10px;
+}
+
+.info > span::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 4px;
+    width: 2px;
+    height: 2px;
+    border-radius: 100%;
+    background-color: #cfcfcf;
+    margin-top: -2px;
+}
+
+
+/* 글쓰기 버튼 */
+
+.write_btn {
+    position: fixed;
+    bottom: 0;
+    right: 50%;
+    margin-right: -640px;
+    width: 984px;
+    padding: 20px;
+}
+
+.write_btn > button {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    height: 52px;
+    border-radius: 5px;
+    background: #151515;
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 52px;
+
+    border: none;
+}
