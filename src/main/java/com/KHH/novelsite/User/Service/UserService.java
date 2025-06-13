@@ -1,6 +1,7 @@
 package com.KHH.novelsite.User.Service;
 
 
+import com.KHH.novelsite.User.Entity.Role;
 import com.KHH.novelsite.User.Entity.User;
 import com.KHH.novelsite.User.Repository.UserRepository;
 import jakarta.transaction.Transactional;
@@ -24,6 +25,8 @@ public class UserService {
     // 암호화
         String encodedPw = passwordEncoder.encode(user.getPwd());
         user.setPwd(encodedPw);
+
+        user.setRole(Role.USER);
 
         return userRepository.save(user);
     }

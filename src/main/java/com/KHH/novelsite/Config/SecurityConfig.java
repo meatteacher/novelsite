@@ -15,6 +15,12 @@ public class SecurityConfig {
                         .requestMatchers("/", "/register", "/login", "/static/**", "/css/**", "/js/**", "/img/**").permitAll()
                         .anyRequest().permitAll() // 전체 허용(개발용)
                 )
+                .logout(logout -> logout
+                        .logoutUrl("/logout")
+                        .logoutSuccessUrl("/")  // 로그아웃 성공 시 메인으로 이동!
+                        .invalidateHttpSession(true)
+                        .deleteCookies("JSESSIONID")
+                )
                 .csrf(csrf -> csrf.disable()); // 개발용: CSRF 해제
 
         return http.build();

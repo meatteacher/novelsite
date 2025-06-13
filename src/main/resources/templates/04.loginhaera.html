@@ -24,10 +24,10 @@
             <div class="title">
                 <img src="/img/login_pyoji.png" alt="">
             </div>
-            <form action="#">
-                <input type="text" placeholder="아이디를 입력하세요" name="id" id="id" class="login_info1">
-                <input type="password" placeholder="비밀번호를 입력하세요" name="pw" id="pw" class="login_info1">
-                <input type="submit" value="로그인" onclick="chk()" class="submit1">
+            <form action="/login" method="post">
+                <input type="text" placeholder="이메일 입력하세요" name="email" id="email" class="login_info1">
+                <input type="password" placeholder="비밀번호를 입력하세요" name="pwd" id="pwd" class="login_info1">
+                <input type="submit" value="로그인" class="submit1">
             </form>
             <div class="util_zone">
                 <ul>
@@ -42,7 +42,7 @@
                         </a>
                     </li>
                     <li class="back">
-                        <a href="03.joinHelldiver.html">
+                        <a th:href="@{/register}" class="join">
                             회원가입
                         </a>
                     </li>

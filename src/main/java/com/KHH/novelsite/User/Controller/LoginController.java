@@ -2,6 +2,8 @@ package com.KHH.novelsite.User.Controller;
 
 import com.KHH.novelsite.User.Entity.User;
 import com.KHH.novelsite.User.Repository.UserRepository;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
@@ -45,7 +47,10 @@ public class LoginController {
             return "04.loginhaera";
         }
 
+        session.setAttribute("loginUser", user);  // 세션에 저장 (원하는 키 이름 사용)
+        session.setMaxInactiveInterval(60 * 60 * 24); // (선택) 세션 유지시간: 24시간
 
+        return "redirect:/";
     }
 
 }

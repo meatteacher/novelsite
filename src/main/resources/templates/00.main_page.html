@@ -13,10 +13,20 @@
     <div class="menu">
         <button class="close">X</button>
         <div class="my_room">
-            <h3><a href="04.loginhaera.html">로그인</a>을 해주세요</h3>
-            <div class="bigroom">
-                <div class="room1">이벤트</div>
-                <div class="room1">공지사항</div>
+            <div th:if="${session.loginUser == null}">
+                <h3><a href="04.loginhaera.html">로그인</a>을 해주세요</h3>
+                <div class="bigroom">
+                    <div class="room1">이벤트</div>
+                    <div class="room1">공지사항</div>
+                </div>
+            </div>
+            <div class="login-welcome" th:if="${session.loginUser != null}">
+                <span>
+                    환영합니다, <span th:text="${session.loginUser.nickname}">닉네임</span>님!
+                </span>
+                <a th:href="@{/logout}" class="novel_upload">
+                    작품등록
+                </a>
             </div>
         </div>
         <div class="menu_icon">
@@ -166,12 +176,27 @@
                     </a>
                 </div>
                 <div class="right_Icon">
-                    <a th:href="@{/login}" class="login">
-                        로그인
-                    </a>
-                    <a th:href="@{/register}" class="join">
-                        회원가입
-                    </a>
+                    <!-- 로그인/회원가입 (로그아웃 상태에서만 보임) -->
+                    <div th:if="${session.loginUser == null}">
+                        <a th:href="@{/login}" class="login">
+                            로그인
+                        </a>
+                        <a th:href="@{/register}" class="join">
+                            회원가입
+                        </a>
+                    </div>
+                    <!-- 환영 메시지 + 로그아웃 (로그인 상태에서만 보임) -->
+                    <div class="login-welcome" th:if="${session.loginUser != null}">
+                        <span>
+                            환영합니다, <span th:text="${session.loginUser.nickname}">닉네임</span>님!
+                        </span>
+                        <a th:href="@{/logout}" class="logout">
+                            로그아웃
+                        </a>
+                        <a th:href="@{/logout}" class="novel_upload">
+                            작품등록
+                        </a>
+                    </div>
                     <a href="#" class="search">
                         <img src="/img/ico_top_search.png" alt="search_icon">
                     </a>
