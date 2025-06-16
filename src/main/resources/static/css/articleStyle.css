@@ -377,12 +377,10 @@ li > a {
 
 .episode_item > a {
     padding: 12px 0 12px 15px;
-    display: block;
-    font-size: 16px;
-    font-weight: 700;
-    color: #3a3a3a;
     display: flex;
     justify-content: space-between;
+    align-items: center;  /* 이거 추가 */
+    min-height: 60px;     /* 이거 강제 높이 추가 */
 }
 
 

@@ -4,28 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/static/css/articleStyle.css">
+    <link rel="stylesheet" href="/css/articleStyle.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <script src="/static/js/novelData.js"></script>
-    <script>
-        function get_url_info(key) {
-            let url = location.href; // 224-2.페이지이동_연습2(상세페이지).html?cateNo=0&itemNo=2 
-            url = url.split("?");// [224-2.페이지이동_연습2(상세페이지).html  ,  cateNo=0&itemNo=2 ]
-            if(url.length > 1) { // 1개보다 크면 정보가(?) 1개 이상 있다 라는 뜻
-                url = url[1].split("&"); // cateNo=0&itemNo=2  =>  [cateNo=0, itemNo=2]
-
-                for(let i=0; i<url.length; i++){
-                    let tmp_url=url[i].split("=") // i=0, cateNo=0 => [cateNo , 0]
-                                                // i=1, itemNo=2 => [itemNo , 2]
-                        
-                    if(tmp_url[0] == key) {
-                        console.log(tmp_url[1])
-                        return tmp_url[1];
-                    }
-                }   
-            }
-        } 
-    </script>
 </head>
 <body>
 <div id="wrap">
@@ -33,10 +13,10 @@
         <div class="inner_menu">
             <div class="left_header_menu">
                 <a href="javascript:history.back()">
-                    <img src="/static/img/back.png" alt="">
+                    <img src="/img/back.png" alt="">
                 </a>
-                <a href="00.main_page.html">
-                    <img src="/static/img/home.png" alt="">
+                <a th:href="@{/}">
+                    <img src="/img/home.png" alt="">
                 </a>
             </div>
             <div class="middle_title">
@@ -47,10 +27,10 @@
             </div>
             <div class="right_header_menu">
                 <a href="#">
-                    <img src="/static/img/gongyou.png" alt="">
+                    <img src="/img/gongyou.png" alt="">
                 </a>
                 <a href="#">
-                    <img src="/static/img/more_see.png" alt="">
+                    <img src="/img/more_see.png" alt="">
                 </a>
             </div>
         </div>
@@ -58,39 +38,39 @@
     <div class="main_Wrap">
         <div class="left_menu">
             <div class="logo">
-                <a href="00.main_page.html">
-                    <img src="/static/img/logo.webp" alt="joara_logo">
+                <a th:href="@{/}">
+                    <img src="/img/logo.webp" alt="joara_logo">
                 </a>
             </div>
             <div class="Q_menu">
                 <ul>
                     <li class="qmenu">
                         <a href="#">
-                            <img src="/static/img/bone.jpg" alt="bone">
+                            <img src="/img/bone.jpg" alt="bone">
                             <p>조아라본</p>
                         </a>
                     </li>
                     <li class="qmenu">
                         <a href="#">
-                            <img src="/static/img/gift.gif" alt="bone">
+                            <img src="/img/gift.gif" alt="bone">
                             <p>대여권선물</p>
                         </a>
                     </li>
                     <li class="qmenu">
                         <a href="05.gesipan.html">
-                            <img src="/static/img/cumo.jpg" alt="bone">
+                            <img src="/img/cumo.jpg" alt="bone">
                             <p>자유게시판</p>
                         </a>
                     </li>
                     <li class="qmenu">
                         <a href="#">
-                            <img src="/static/img/like.jpg" alt="bone">
+                            <img src="/img/like.jpg" alt="bone">
                             <p>선호장르</p>
                         </a>
                     </li>
                     <li class="qmenu">
                         <a href="#">
-                            <img src="/static/img/write.gif" alt="bone">
+                            <img src="/img/write.gif" alt="bone">
                             <p>작품등록</p>
                         </a>
                     </li>
@@ -100,31 +80,31 @@
                 <ul>
                     <li class="menuq">
                         <a href="#">
-                            <img src="/static/img/event.png" alt="">
+                            <img src="/img/event.png" alt="">
                             <p>이벤트</p>
                         </a>
                     </li>
                     <li class="menuq">
                         <a href="#">
-                            <img src="/static/img/fnish.png" alt="">
+                            <img src="/img/fnish.png" alt="">
                             <p>완결작품</p>
                         </a>
                     </li>
                     <li class="menuq">
                         <a href="#">
-                            <img src="/static/img/new.png" alt="">
+                            <img src="/img/new.png" alt="">
                             <p>최신작품</p>
                         </a>
                     </li>
                     <li class="menuq">
                         <a href="#">
-                            <img src="/static/img/best.png" alt="">
+                            <img src="/img/best.png" alt="">
                             <p>베스트</p>
                         </a>
                     </li>
                     <li class="menuq">
                         <a href="#">
-                            <img src="/static/img/savepo.png" alt="">
+                            <img src="/img/savepo.png" alt="">
                             <p>보관함</p>
                         </a>
                     </li>
@@ -137,139 +117,139 @@
                 </ul>
             </div>
         </div>
-    </div>
-    <div class="bigbox">
-        <div class="sub_box">
-            <div class="pyoji_set">
-                <!-- <div class="pyo_back">
-                    <div class="bg_img"></div>
+        <div class="bigbox">
+            <div class="sub_box">
+                <div class="pyoji_set">
+                    <!-- <div class="pyo_back">
+                        <div class="bg_img"></div>
+                    </div>
+                    <div class="pyoji">
+                        <div class="img">
+                            <img src="/img/pyoji/0.jpg" alt="">
+                        </div>
+                    </div> -->
                 </div>
-                <div class="pyoji">
-                    <div class="img">
-                        <img src="/static/img/pyoji/0.jpg" alt="">
+                <div class="book_info">
+                    <!-- <div class="sort">
+                        <div class="tag">판타지</div>
+                        <div class="event">무료연재</div>
                     </div>
-                </div> -->
-            </div>
-            <div class="book_info">
-                <!-- <div class="sort">
-                    <div class="tag">판타지</div>
-                    <div class="event">무료연재</div>
-                </div>
-                <div class="title">두레원 이야기</div>
-                <div class="artist">
-                    <img src="/static/img/artist.png" alt="artist">
-                    <a href="#">meat960</a>
-                </div>
-                <div class="scale">
-                    <div class="item">
-                        <div class="icon">
-                            <img src="/static/img/people.png">
-                        </div>
-                        <div class="num">
-                            3650
-                        </div>
+                    <div class="title">두레원 이야기</div>
+                    <div class="artist">
+                        <img src="/img/artist.png" alt="artist">
+                        <a href="#">meat960</a>
                     </div>
-                    <div class="item">
-                        <div class="icon">
-                            <img src="/static/img/good.png">
+                    <div class="scale">
+                        <div class="item">
+                            <div class="icon">
+                                <img src="/img/people.png">
+                            </div>
+                            <div class="num">
+                                3650
+                            </div>
                         </div>
-                        <div class="num">
-                            520
+                        <div class="item">
+                            <div class="icon">
+                                <img src="/img/good.png">
+                            </div>
+                            <div class="num">
+                                520
+                            </div>
                         </div>
-                    </div>
-                    <div class="item">
-                        <div class="icon">
-                            <img src="/static/img/star.png">
+                        <div class="item">
+                            <div class="icon">
+                                <img src="/img/star.png">
+                            </div>
+                            <div class="num">
+                                200
+                            </div>
                         </div>
-                        <div class="num">
-                            200
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="icon">
-                            <img src="/static/img/talk.png">
-                        </div>
-                        <div class="num">
-                            200
-                        </div>
-                    </div>
-                </div>
-                 -->
-            </div>
-            <div class="sogae">
-                <!-- <p>농사꾼들에게 일어나는 기묘한 이야기들. 두레원에 어서오세요</p> -->
-            </div>
-    
-        </div>
-        <div class="chapter">
-            <div class="chap_tab">
-                <ul>
-                    <li class="tab active" onclick="tmp2(this)">
-                        <a href="#">연재목록</a>
-                    </li>
-                    <li class="tab " onclick="tmp2(this)">
-                        <a href="#">작가의 다른 작품</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="tab_list">
-                <div class="list_tab select">
-                    <div class="list_util">
-                        <div class="buy_tab"></div>
-                        <div class="list">
-                            <ul>
-                                <li>
-                                    <a href="#">최신순</a>
-                                </li>
-                                <li>
-                                    <a href="#">1화부터</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="episode_list_box">
-                        <div class="episode_list">
-                            <div class="episode_item">
-                                <!-- <a href="#">
-                                    <div class="episode_name">
-                                        <div class="epi_num">
-                                            <p>1화</p>
-                                        </div>
-                                        <div class="epi_info">
-                                            <span>2025.03.20</span>
-                                            <span>13.0 K</span>
-                                            <div class="epi_scale">
-                                                <div class="e_eye">
-                                                    <img src="/static/img/eye.png" alt="">
-                                                    <em>1</em>
-                                                </div>
-                                                <div class="e_like">
-                                                    <img src="/static/img/good.png" alt="">
-                                                    <em>1</em>
-                                                </div>
-                                                <div class="e_datgul">
-                                                    <img src="/static/img/talk.png" alt="">
-                                                    <em>1</em>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="down">
-                                        <img src="/static/img/down.png" alt="down">
-                                    </div>
-                                </a> -->
+                        <div class="item">
+                            <div class="icon">
+                                <img src="/img/talk.png">
+                            </div>
+                            <div class="num">
+                                200
                             </div>
                         </div>
                     </div>
+                     -->
                 </div>
-                <div class="list_tab">
-                    empty
+                <div class="sogae">
+                    <!-- <p>농사꾼들에게 일어나는 기묘한 이야기들. 두레원에 어서오세요</p> -->
+                </div>
+
+            </div>
+            <div class="chapter">
+                <div class="chap_tab">
+                    <ul>
+                        <li class="tab active" onclick="tmp2(this)">
+                            <a href="#">연재목록</a>
+                        </li>
+                        <li class="tab " onclick="tmp2(this)">
+                            <a href="#">작가의 다른 작품</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab_list">
+                    <div class="list_tab select">
+                        <div class="list_util">
+                            <div class="buy_tab"></div>
+                            <div class="list">
+                                <ul>
+                                    <li>
+                                        <a href="#">최신순</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">1화부터</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="episode_list_box">
+                            <div class="episode_list">
+                                <div class="episode_item">
+                                    <!-- <a href="#">
+                                        <div class="episode_name">
+                                            <div class="epi_num">
+                                                <p>1화</p>
+                                            </div>
+                                            <div class="epi_info">
+                                                <span>2025.03.20</span>
+                                                <span>13.0 K</span>
+                                                <div class="epi_scale">
+                                                    <div class="e_eye">
+                                                        <img src="/img/eye.png" alt="">
+                                                        <em>1</em>
+                                                    </div>
+                                                    <div class="e_like">
+                                                        <img src="/img/good.png" alt="">
+                                                        <em>1</em>
+                                                    </div>
+                                                    <div class="e_datgul">
+                                                        <img src="/img/talk.png" alt="">
+                                                        <em>1</em>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="down">
+                                            <img src="/img/down.png" alt="down">
+                                        </div>
+                                    </a> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list_tab">
+                        empty
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="/static/js/articleJava.js"></script>
+<script src="/js/articleJava.js"></script>
 </body>
 </html>

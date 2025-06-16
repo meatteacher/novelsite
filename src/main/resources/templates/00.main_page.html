@@ -14,7 +14,7 @@
         <button class="close">X</button>
         <div class="my_room">
             <div th:if="${session.loginUser == null}">
-                <h3><a href="04.loginhaera.html">로그인</a>을 해주세요</h3>
+                <h3><a th:href="@{/login}" class="login">로그인</a>을 해주세요</h3>
                 <div class="bigroom">
                     <div class="room1">이벤트</div>
                     <div class="room1">공지사항</div>
@@ -26,6 +26,9 @@
                 </span>
                 <a th:href="@{/logout}" class="novel_upload">
                     작품등록
+                </a>
+                <a href="#" class="my_novel_manage">
+                    내작품 관리
                 </a>
             </div>
         </div>
@@ -196,6 +199,9 @@
                         <a th:href="@{/logout}" class="novel_upload">
                             작품등록
                         </a>
+                        <a href="#" class="my_novel_manage">
+                            내작품 관리
+                        </a>
                     </div>
                     <a href="#" class="search">
                         <img src="/img/ico_top_search.png" alt="search_icon">
@@ -229,7 +235,7 @@
     <div class="main_Wrap">
         <div class="left_menu">
             <div class="logo">
-                <a href="00.main_page.html">
+                <a th:href="@{/}">
                     <img src="/img/logo.webp" alt="joara_logo">
                 </a>
             </div>
@@ -459,6 +465,37 @@
         <div class="info_footer"></div>
     </div>
 </div>
+
+<div id="novelModal" style="display:none; position:fixed; top:30%; left:30%; background:white; border:1px solid #ccc; padding:20px; z-index:9999;">
+    <form id="novelForm" enctype="multipart/form-data">
+        <label>제목: <input type="text" name="title" required></label><br>
+        <label>소개: <textarea name="description"></textarea></label><br>
+        <label>장르:
+            <select name="genre" required>
+                <option value="">장르 선택</option>
+                <th:block th:each="g : ${genres}">
+                    <option th:value="${g}" th:text="${g.displayName}"></option>
+                </th:block>
+            </select>
+        </label><br>
+        <label>표지 업로드: <input type="file" name="coverImg"></label><br>
+        <span style="font-size:12px;">또는 아래에서 선택</span><br>
+        <select name="coverSelect" id="coverSelect">
+            <option value="">표지 선택 안함</option>
+        </select>
+        <br>
+        <label>1화 제목: <input type="text" name="firstEpisodeTitle" required></label><br>
+        <label>1화 내용: <textarea name="firstEpisodeContent" required></textarea></label><br>
+        <br>
+        <button type="button" id="novelSubmitBtn">등록</button>
+        <button type="button" onclick="closeModal()">취소</button>
+    </form>
+</div>
+
+<div id="myNovelListModal" style="display:none; position:fixed; top:10%; left:30%; width:400px; background:white; border:1px solid #ccc; padding:20px; z-index:10000;">
+    <button onclick="document.getElementById('myNovelListModal').style.display='none'">닫기</button>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="/js/novelJava.js"></script>
 </body>

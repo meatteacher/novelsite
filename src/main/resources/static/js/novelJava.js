@@ -297,3 +297,99 @@ loop: false,
 // }
 });
 
+// 모달 열릴 때 표지 옵션 자동 불러오기
+function loadCoverList() {
+    fetch('/cover/list')  // 이 API에서 img/pyoji 안의 파일명 배열 리턴
+        .then(resp => resp.json())
+        .then(list => {
+            const select = document.getElementById('coverSelect');
+            // 기존 옵션 다 지우고
+            select.innerHTML = '<option value="">표지 선택 안함</option>';
+            list.forEach(name => {
+                select.innerHTML += `<option value="${name}">${name}</option>`;
+            });
+        });
+}
+
+function closeModal() {
+    document.getElementById('novelModal').style.display = 'none';
+}
+
+function loadGenreList() {
+    fetch('/novel/genre-list')
+        .then(resp => resp.json())
+        .then(list => {
+            const select = document.querySelector('select[name="genre"]');
+            select.innerHTML = '<option value="">장르 선택</option>';
+            list.forEach(genre => {
+                select.innerHTML += `<option value="${genre.code}">${genre.displayName}</option>`;
+            });
+        });
+}
+
+// 작품등록 버튼 누르면 모달 + 표지리스트 로딩
+document.querySelectorAll('.novel_upload').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('novelModal').style.display = 'block';
+        loadCoverList();
+        loadGenreList();
+    });
+});
+
+document.getElementById('novelSubmitBtn').onclick = function() {
+    const form = document.getElementById('novelForm');
+    const formData = new FormData(form);
+
+    // 선택만 하고 업로드 파일이 없을 때 선택 파일 값만 서버로 보냄
+    // (폼에 file input이 비어있으면 coverSelect 값 사용)
+    fetch('/novel/register', {
+        method: 'POST',
+        body: formData
+    }).then(resp => {
+        if (resp.ok) {
+            alert('등록 성공!');
+            closeModal();
+            location.reload();
+        } else {
+            alert('실패');
+        }
+    });
+}
+
+// "내작품 관리" 클릭 시 내 소설 리스트를 띄우는 이벤트
+document.querySelectorAll('.my_novel_manage').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        fetch('/novel/mylist')
+            .then(resp => resp.json())
+            .then(list => {
+                let html = '<h3>내 소설 목록</h3>';
+                // list.forEach(novel => {
+                //     html += `
+                //         <div style="margin-bottom:15px;">
+                //             <img src="${novel.coverimg}" style="width:50px;height:50px;object-fit:cover;border-radius:8px;">
+                //             <b>${novel.title}</b><br>
+                //             <span>${novel.description}</span>
+                //         </div>
+                //     `;
+                // });
+                //
+                // 모달 or div에 결과 삽입
+                list.forEach(novel => {
+                    html += `
+                        <div style="margin-bottom:15px;">
+                            <a href="/article?nno=${novel.nno}">
+                                <img src="${novel.coverimg}" style="width:50px;height:50px;object-fit:cover;border-radius:8px;">
+                                <b>${novel.title}</b>
+                            </a>
+                            <br>
+                            <span>${novel.description}</span>
+                        </div>
+                `;
+                });
+                document.getElementById('myNovelListModal').innerHTML = html;
+                document.getElementById('myNovelListModal').style.display = 'block';
+            });
+    });
+});

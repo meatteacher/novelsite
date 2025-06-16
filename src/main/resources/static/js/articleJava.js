@@ -1,112 +1,79 @@
-function tmp2(el) {
-    let item = document.getElementsByClassName('tab ');
-    for(let i=0; i<item.length; i++) {
-        item[i].classList.remove('active')    
-    }       
-    el.classList.add('active')
-}
+document.addEventListener('DOMContentLoaded', function () {
+    // 탭 초기화 강제 실행
+    tmp2(document.querySelector('.tab'));
 
-// 작품 불러오기
-let idx = get_url_info("itemNo");
-console.log("itemNo: ",idx)
-let item = NOVEL_LIST[idx];
+    const nno = get_url_info("nno");
 
-document.getElementsByClassName('middle_title')[0].innerHTML = `
+    // 작품 불러오기
+    fetch(`/novel/detail?nno=${nno}`)
+        .then(resp => resp.json())
+        .then(novel => {
+            document.querySelector('.middle_title').innerHTML = `
                 <div>
-                    <h3>${item.title}</h3>
-                    <h3>${item.title}</h3>
+                    <h3>${novel.title}</h3>
+                    <h3>${novel.title}</h3>
                 </div>
-`
-
-document.getElementsByClassName('pyoji_set')[0].innerHTML = `
-        <div class="pyo_back">
-                    <div class="bg_img" style="background-image: url(../port/pyoji/${item.src});"></div>
+            `;
+            document.querySelector('.pyoji_set').innerHTML = `
+                <div class="pyo_back">
+                    <div class="bg_img" style="background-image: url('${novel.coverimg}');"></div>
                 </div>
                 <div class="pyoji">
                     <div class="img">
-                        <img src="../port/pyoji/${item.src}" alt="">
+                        <img src="${novel.coverimg}" alt="">
                     </div>
                 </div>
-`
-
-document.getElementsByClassName('book_info')[0].innerHTML = `
-        <div class="sort">
-                    <div class="tag">${item.tag}</div>
-                    <div class="event">무료연재</div>
-                </div>
-                <div class="title">${item.title}</div>
+            `;
+            document.querySelector('.book_info').innerHTML = `
+                <div class="title">${novel.title}</div>
                 <div class="artist">
-                    <img src="../port/artist.png" alt="artist">
-                    <a href="#">${item.artist}</a>
+                    <img src="/img/artist.png" alt="artist">
+                    <a href="#">${novel.writer}</a>
                 </div>
-                <div class="scale">
-                    <div class="item">
-                        <div class="icon">
-                            <img src="../port/people.png">
-                        </div>
-                        <div class="num">
-                        ${item.bookCount}
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="icon">
-                            <img src="../port/good.png">
-                        </div>
-                        <div class="num">
-                        ${item.ddaBong}
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="icon">
-                            <img src="../port/star.png">
-                        </div>
-                        <div class="num">
-                            200
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="icon">
-                            <img src="../port/talk.png">
-                        </div>
-                        <div class="num">
-                            200
-                        </div>
-                    </div>
-                </div>
-                
-`
+            `;
+            document.querySelector('.sogae').innerHTML = `<p>${novel.description}</p>`;
+        });
 
-document.getElementsByClassName('sogae')[0].innerHTML = `
-        <p>${item.sogae }</p>
-`
+    // 에피소드 불러오기
+    fetch(`/novel/${nno}/episodes`)
+        .then(resp => resp.json())
+        .then(list => {
+            let html = '';
+            list.forEach(ep => {
+                html += `
+                    <a href="/viewer/${ep.epno}">
+                        <div class="episode_name">
+                            <div class="epi_num"><p>${ep.episodeno}화</p></div>
+                            <div class="epi_info">
+                                <span>${ep.createdAt ? ep.createdAt.substring(0, 10) : ''}</span>
+                                <span>${ep.viewCount ?? 0}</span>
+                            </div>
+                        </div>
+                    </a>
+                `;
+            });
+            document.querySelector('.episode_item').innerHTML = html;
+        });
 
-document.getElementsByClassName('episode_item')[0].innerHTML = `
-    <a href="02.viewer_system.html?itemNo=${item.item_no}">
-        <div class="episode_name">
-            <div class="epi_num">
-                <p>1화</p>
-            </div>
-            <div class="epi_info">
-            <span>2025.03.20</span>
-            <span>13.0 K</span>
-                <div class="epi_scale">
-                    <div class="e_eye">
-                        <img src="../port/eye.png" alt="">
-                        <em>1</em>
-                    </div>
-                    <div class="e_like">
-                        <img src="../port/good.png" alt="">
-                        <em>1</em>
-                    </div>
-                    <div class="e_datgul">
-                        <img src="../port/talk.png" alt="">
-                        <em>1</em>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="down">
-            <img src="../port/down.png" alt="down">
-        </div>
-    </a>
-`
+    function get_url_info(key) {
+        let url = location.href.split("?");
+        if (url.length > 1) {
+            url = url[1].split("&");
+            for (let i = 0; i < url.length; i++) {
+                let tmp_url = url[i].split("=");
+                if (tmp_url[0] == key) {
+                    return tmp_url[1];
+                }
+            }
+        }
+        return null;
+    }
+});
+
+function tmp2(el) {
+    let item = document.getElementsByClassName('tab ');
+    for (let i = 0; i < item.length; i++) {
+        item[i].classList.remove('active');
+    }
+    el.classList.add('active');
+}

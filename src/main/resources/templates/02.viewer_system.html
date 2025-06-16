@@ -4,28 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/static/css/viewerStyle.css">
+    <link rel="stylesheet" href="/css/viewerStyle.css">
     <script src="./novelData.js"></script>
-    <script>
-        function get_url_info(key) {
-            let url = location.href; // 224-2.페이지이동_연습2(상세페이지).html?cateNo=0&itemNo=2 
-            url = url.split("?");// [224-2.페이지이동_연습2(상세페이지).html  ,  cateNo=0&itemNo=2 ]
-            if(url.length > 1) { // 1개보다 크면 정보가(?) 1개 이상 있다 라는 뜻
-                url = url[1].split("&"); // cateNo=0&itemNo=2  =>  [cateNo=0, itemNo=2]
-
-                for(let i=0; i<url.length; i++){
-                    let tmp_url=url[i].split("=") // i=0, cateNo=0 => [cateNo , 0]
-                                                // i=1, itemNo=2 => [itemNo , 2]
-                        
-                    if(tmp_url[0] == key) {
-                        console.log(tmp_url[1])
-                        return tmp_url[1];
-                    }
-                    console.log(key)
-                }   
-            }
-        } 
-    </script>
 </head>
 <body>
 <div id="wrap">
@@ -34,55 +14,56 @@
             <div class="upper">
                 <div class="left_menu">
                     <a href="javascript:history.back()">
-                        <img src="/static/img/white_back.png" alt="back">
+                        <img src="/img/white_back.png" alt="back">
                     </a>
                 </div>
                 <div class="middle_title">
+                    <div th:text="${episode.title}"></div>
                 </div>
                 <div class="right_menu">
                     <a href="#">
-                        <img src="/static/img/alpabet.png" alt="">
+                        <img src="/img/alpabet.png" alt="">
                     </a>
                     <a href="#">
-                        <img src="/static/img/coupon.png" alt="">
+                        <img src="/img/coupon.png" alt="">
                     </a>
                     <a href="#">
-                        <img src="/static/img/servey.png" alt="">
+                        <img src="/img/servey.png" alt="">
                     </a>
                     <a href="#">
-                        <img src="/static/img/white_gong.png" alt="">
+                        <img src="/img/white_gong.png" alt="">
                     </a>
                     <a href="#">
-                        <img src="/static/img/bookmark.png" alt="">
+                        <img src="/img/bookmark.png" alt="">
                     </a>
                 </div>
             </div>
             <div class="bottom">
                 <div class="left_menu">
                     <a href="#">
-                        <img src="/static/img/white_ddabong.png" alt="">
+                        <img src="/img/white_ddabong.png" alt="">
                     </a>
                     <a href="#" style="margin-left: 16px;">
-                        <img src="/static/img/white_star.png" alt="">
+                        <img src="/img/white_star.png" alt="">
                     </a>
                     <a href="#" style="margin-left: 16px;">
-                        <img src="/static/img/white_talk.png" alt="">
+                        <img src="/img/white_talk.png" alt="">
                         <span>0</span>
                     </a>
                 </div>
                 <div class="middle_moving">
                     <a href="#">
-                        <img src="/static/img/white_prev.png" alt="">
+                        <img src="/img/white_prev.png" alt="">
                         <span>이전화</span>
                     </a>
                     <a href="#" style="margin-left: 24px;">
                         <span>다음화</span>
-                        <img src="/static/img/white_next.png" alt="">
+                        <img src="/img/white_next.png" alt="">
                     </a>
                 </div>
                 <div class="right_menu">
                     <a href="#">
-                        <img src="/static/img/white_list.png" alt="">
+                        <img src="/img/white_list.png" alt="">
                         <span>목록</span>
                     </a>
                 </div>
@@ -91,11 +72,12 @@
         <div class="view_window">
             <div class="real_view">
                 <div class="episode">
+                    <p th:text="${episode.content}"></p>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<script src="/static/js/viewerJava.js"></script>
+<script src="/js/viewerJava.js"></script>
 </body>
 </html>
