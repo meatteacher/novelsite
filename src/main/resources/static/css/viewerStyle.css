@@ -108,3 +108,8 @@ ul {
 .episode{
     padding: 150px 24px;
 }
+
+.episode p {
+    white-space: pre-wrap; /* 줄바꿈 문자와 공백을 유지하며 자동으로 줄바꿈 */
+    word-wrap: break-word; /* 긴 단어가 줄바꿈되도록 허용 */
+}

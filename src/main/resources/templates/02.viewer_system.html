@@ -52,11 +52,11 @@
                     </a>
                 </div>
                 <div class="middle_moving">
-                    <a href="#">
+                    <a th:if="${prevEpno != null}" th:href="@{/viewer/{epno}(epno=${prevEpno})}">
                         <img src="/img/white_prev.png" alt="">
                         <span>이전화</span>
                     </a>
-                    <a href="#" style="margin-left: 24px;">
+                    <a th:if="${nextEpno != null}" th:href="@{/viewer/{epno}(epno=${nextEpno})}" style="margin-left: 24px;">
                         <span>다음화</span>
                         <img src="/img/white_next.png" alt="">
                     </a>
@@ -72,7 +72,7 @@
         <div class="view_window">
             <div class="real_view">
                 <div class="episode">
-                    <p th:text="${episode.content}"></p>
+                    <p th:utext="${#strings.replace(#strings.replace(episode.content, '\r\n', '<br/>'), '\n', '<br/>')}"></p>
                 </div>
             </div>
         </div>

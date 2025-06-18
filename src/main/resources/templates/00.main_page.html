@@ -492,7 +492,22 @@
     </form>
 </div>
 
-<div id="myNovelListModal" style="display:none; position:fixed; top:10%; left:30%; width:400px; background:white; border:1px solid #ccc; padding:20px; z-index:10000;">
+<!-- 이어쓰기 모달 -->
+<div id="episodeWriteModal" style="display:none; position:fixed; top:25%; left:30%; background:white; border:1px solid #ccc; padding:20px; z-index:9999;">
+    <h3>에피소드 이어쓰기</h3>
+    <form id="episodeWriteForm">
+        <input type="hidden" name="nno">
+        <label>제목: <input type="text" name="title" required></label><br>
+        <label>내용:<br>
+            <textarea name="content" rows="8" cols="50" required></textarea>
+        </label><br><br>
+        <button type="submit">작성</button>
+        <button type="button" onclick="document.getElementById('episodeWriteModal').style.display='none'">취소</button>
+    </form>
+</div>
+
+
+<div id="myNovelListModal" style="display:none; position:fixed; top:10%; left:30%; width:400px; background:white; border:1px solid #ccc; padding:20px; z-index:1000;">
     <button onclick="document.getElementById('myNovelListModal').style.display='none'">닫기</button>
 </div>
 

@@ -16,4 +16,7 @@ public interface NovelRepository extends JpaRepository<Novel, Long> {
 
     // 장르 기준으로 소설 리스트 조회
     List<Novel> findByGenre(Genre genre);
+
+    // 소설이 존재하는지 확인
+    Optional<Novel> findById(Long id);
 }

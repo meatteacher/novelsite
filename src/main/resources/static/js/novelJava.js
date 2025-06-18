@@ -365,31 +365,49 @@ document.querySelectorAll('.my_novel_manage').forEach(btn => {
             .then(resp => resp.json())
             .then(list => {
                 let html = '<h3>내 소설 목록</h3>';
-                // list.forEach(novel => {
-                //     html += `
-                //         <div style="margin-bottom:15px;">
-                //             <img src="${novel.coverimg}" style="width:50px;height:50px;object-fit:cover;border-radius:8px;">
-                //             <b>${novel.title}</b><br>
-                //             <span>${novel.description}</span>
-                //         </div>
-                //     `;
-                // });
-                //
-                // 모달 or div에 결과 삽입
                 list.forEach(novel => {
                     html += `
                         <div style="margin-bottom:15px;">
                             <a href="/article?nno=${novel.nno}">
                                 <img src="${novel.coverimg}" style="width:50px;height:50px;object-fit:cover;border-radius:8px;">
                                 <b>${novel.title}</b>
-                            </a>
-                            <br>
-                            <span>${novel.description}</span>
+                            </a><br>
+                            <span>${novel.description}</span><br>
+                            <button class="continue-writing-btn" data-nno="${novel.nno}">이어쓰기</button>
                         </div>
-                `;
+                    `;
                 });
                 document.getElementById('myNovelListModal').innerHTML = html;
                 document.getElementById('myNovelListModal').style.display = 'block';
+
+                // 모달 열기
+                document.querySelectorAll('.continue-writing-btn').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        const nno = e.currentTarget.dataset.nno;
+                        const modal = document.getElementById('episodeWriteModal');
+                        modal.style.display = 'block';
+                        modal.querySelector('input[name="nno"]').value = nno;
+                    });
+                });
             });
     });
+});
+
+document.getElementById('episodeWriteForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    fetch('/episode/write', {
+        method: 'POST',
+        body: formData
+    })
+        .then(resp => {
+            if (!resp.ok) throw new Error("작성 실패");
+            alert("작성 완료!");
+            document.getElementById('episodeWriteModal').style.display = 'none';
+            location.href = `/article?nno=${formData.get('nno')}`;
+        })
+        .catch(err => alert(err.message));
 });

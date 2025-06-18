@@ -26,7 +26,9 @@ public class Episode {
     @Column(name = "title", nullable = false)
     private String title;
 
-    @Column(name = "content", nullable = false)
+    @Lob
+    @Basic(fetch = FetchType.LAZY)
+    @Column(name = "content", columnDefinition = "TEXT")
     private String content;
 
     @Column(name = "episode_no")
