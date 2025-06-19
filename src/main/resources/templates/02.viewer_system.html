@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/css/viewerStyle.css">
-    <script src="./novelData.js"></script>
 </head>
 <body>
 <div id="wrap">
@@ -43,10 +42,10 @@
                     <a href="#">
                         <img src="/img/white_ddabong.png" alt="">
                     </a>
-                    <a href="#" style="margin-left: 16px;">
-                        <img src="/img/white_star.png" alt="">
+                    <a href="#" id="likeBtn">
+                        <span id="likeIcon" style="font-size: 24px;">🤍</span> <!-- 기본은 빈 하트 -->
                     </a>
-                    <a href="#" style="margin-left: 16px;">
+                    <a href="#" id="commentToggleBtn" style="margin-left: 16px;">
                         <img src="/img/white_talk.png" alt="">
                         <span>0</span>
                     </a>
@@ -78,6 +77,21 @@
         </div>
     </div>
 </div>
+
+<div id="commentModal" class="comment-modal hidden">
+    <div class="modal-content">
+        <h3>댓글</h3>
+        <div id="commentList">
+            <!-- 댓글 리스트 여기에 렌더링 -->
+        </div>
+        <div class="comment-form">
+            <textarea id="commentInput" placeholder="댓글을 입력하세요..."></textarea>
+            <button id="submitComment">등록</button>
+        </div>
+        <button id="closeModal">닫기</button>
+    </div>
+</div>
+
 <script src="/js/viewerJava.js"></script>
 </body>
 </html>

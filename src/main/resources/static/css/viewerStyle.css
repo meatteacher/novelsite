@@ -113,3 +113,57 @@ ul {
     white-space: pre-wrap; /* 줄바꿈 문자와 공백을 유지하며 자동으로 줄바꿈 */
     word-wrap: break-word; /* 긴 단어가 줄바꿈되도록 허용 */
 }
+
+/* 댓글 모달 */
+
+.comment-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border: 1px solid #ccc;
+    width: 400px;
+    padding: 16px;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.comment-modal.hidden {
+    display: none;
+}
+
+.comment-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#commentInput {
+    width: 100%;
+    height: 80px;
+    margin-bottom: 8px;
+    resize: none;
+}
+
+#submitComment {
+    align-self: flex-end;
+}
+
+.single-comment {
+    border-bottom: 1px solid #ccc;
+    padding: 8px 0;
+    font-size: 14px;
+}
+
+.edit-textarea {
+    width: 100%;
+    min-height: 60px;
+    margin-top: 6px;
+    font-size: 14px;
+    padding: 6px;
+}
+
+.save-edit, .cancel-edit {
+    margin-right: 5px;
+    margin-top: 5px;
+}

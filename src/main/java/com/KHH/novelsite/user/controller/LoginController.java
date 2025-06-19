@@ -46,6 +46,7 @@ public class LoginController {
         }
 
         session.setAttribute("loginUser", user);  // 세션에 저장 (원하는 키 이름 사용)
+        session.setAttribute("uno", user.getUno());
         session.setMaxInactiveInterval(60 * 60 * 24); // (선택) 세션 유지시간: 24시간
 
         return "redirect:/";
