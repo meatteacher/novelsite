@@ -2,10 +2,13 @@ package com.KHH.novelsite.episode.service;
 
 import com.KHH.novelsite.episode.entity.Episode;
 import com.KHH.novelsite.episode.repository.EpisodeRepository;
+import com.KHH.novelsite.episode.request.EpisodeUpdateRequest;
 import com.KHH.novelsite.novel.entity.Novel;
 import com.KHH.novelsite.novel.repository.NovelRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import com.KHH.novelsite.user.entity.User;
+import jakarta.transaction.Transactional;
 
 import java.util.List;
 
@@ -52,5 +55,26 @@ public class EpisodeService {
                 current.getNovel().getNno(),
                 current.getEpisodeno() + 1
         ).orElse(null);
+    }
+
+    @Transactional
+    public void updateEpisode(Long epno, EpisodeUpdateRequest request, User loginUser) {
+        Episode episode = episodeRepository.findById(epno)
+                .orElseThrow(() -> new IllegalArgumentException("해당 에피소드 없음"));
+        if (!episode.getNovel().getUser().getUno().equals(loginUser.getUno())) {
+            throw new IllegalStateException("작성자만 수정할 수 있습니다.");
+        }
+        episode.setTitle(request.getTitle());
+        episode.setContent(request.getContent());
+    }
+
+    @Transactional
+    public void deleteEpisode(Long epno, User loginUser) {
+        Episode episode = episodeRepository.findById(epno)
+                .orElseThrow(() -> new IllegalArgumentException("해당 에피소드 없음"));
+        if (!episode.getNovel().getUser().getUno().equals(loginUser.getUno())) {
+            throw new IllegalStateException("작성자만 삭제할 수 있습니다.");
+        }
+        episodeRepository.delete(episode);
     }
 }

@@ -1,11 +1,15 @@
 package com.KHH.novelsite.episode.controller;
 
 import com.KHH.novelsite.episode.entity.Episode;
+import com.KHH.novelsite.episode.request.EpisodeUpdateRequest;
 import com.KHH.novelsite.episode.service.EpisodeService;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import com.KHH.novelsite.user.entity.User;
 
 import java.util.List;
 
@@ -21,17 +25,30 @@ public class EpisodeController {
         return episodeService.getEpisodesByNovel(nno);
     }
 
-    @GetMapping("/viewer/{epno}")
-    public String viewEpisode(@PathVariable Long epno, Model model) {
-        Episode episode = episodeService.getEpisodeById(epno);
+    @GetMapping("/episode/{epno}/detail")
+    @ResponseBody
+    public Episode getEpisodeDetail(@PathVariable Long epno) {
+        return episodeService.getEpisodeById(epno);
+    }
 
-        // 이전/다음 회차 가져오기
+    @GetMapping("/viewer/{epno}")
+    public String viewEpisode(@PathVariable Long epno, Model model, HttpSession session) {
+        Episode episode = episodeService.getEpisodeById(epno);
         Episode prev = episodeService.getPrevEpisode(episode);
         Episode next = episodeService.getNextEpisode(episode);
+
+        User loginUser = (User) session.getAttribute("loginUser");
+        Long loginUserId = (loginUser != null) ? loginUser.getUno() : null;
+        Long authorId = episode.getNovel().getUser().getUno();
+        Long novelNno = episode.getNovel().getNno();
 
         model.addAttribute("episode", episode);
         model.addAttribute("prevEpno", prev != null ? prev.getEpno() : null);
         model.addAttribute("nextEpno", next != null ? next.getEpno() : null);
+        model.addAttribute("loginUserId", loginUserId);
+        model.addAttribute("authorId", authorId);
+        model.addAttribute("novelNno", novelNno);
+
         return "02.viewer_system";
     }
 
@@ -50,5 +67,23 @@ public class EpisodeController {
 
         episodeService.createEpisode(nno, title, content);
         return "redirect:/article?nno=" + nno;  // 작성 후 아티클 페이지로 이동
+    }
+
+    @PutMapping("/episode/{epno}/edit")
+    @ResponseBody
+    public ResponseEntity<?> editEpisode(@PathVariable Long epno,
+                                         @RequestBody EpisodeUpdateRequest request,
+                                         HttpSession session) {
+        User loginUser = (User) session.getAttribute("loginUser");
+        episodeService.updateEpisode(epno, request, loginUser);
+        return ResponseEntity.ok().build();
+    }
+
+    @DeleteMapping("/episode/{epno}/delete")
+    @ResponseBody
+    public ResponseEntity<?> deleteEpisode(@PathVariable Long epno, HttpSession session) {
+        User loginUser = (User) session.getAttribute("loginUser");
+        episodeService.deleteEpisode(epno, loginUser);
+        return ResponseEntity.ok().build();
     }
 }

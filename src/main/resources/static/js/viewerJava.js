@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const commentInput = document.getElementById('commentInput');
     const commentList = document.getElementById('commentList');
     let myNickname = "GUEST";
+    const form = document.getElementById("episodeEditForm");
 
     fetch(`/api/episode/${epno}/comments/me`)
         .then(res => res.text())
@@ -38,6 +39,66 @@ document.addEventListener('DOMContentLoaded', function () {
                 })
                 .catch(err => console.error("좋아요 요청 실패:", err));
         });
+    }
+
+    if (loginUserId && authorId && loginUserId === authorId) {
+        const controlBox = document.getElementById('epControlBox');
+        controlBox.innerHTML = `
+        <button id="editEpBtn">수정</button>
+        <button id="deleteEpBtn">삭제</button>
+    `;
+
+        const editBtn = document.getElementById("editEpBtn");
+        const deleteBtn = document.getElementById("deleteEpBtn");
+
+        if (editBtn) {
+            editBtn.addEventListener("click", function () {
+                fetch(`/episode/${epno}/detail`)
+                    .then(res => res.json())
+                    .then(ep => {
+                        if (!ep) return alert("에피소드 정보를 불러올 수 없습니다.");
+                        document.querySelector('#episodeEditForm input[name="title"]').value = ep.title;
+                        document.querySelector('#episodeEditForm textarea[name="content"]').value = ep.content;
+                        document.getElementById('episodeEditModal').style.display = 'block';
+                    });
+            });
+        }
+
+        if (form) {
+            form.addEventListener("submit", function (e) {
+                e.preventDefault();
+                const title = this.title.value.trim();
+                const content = this.content.value.trim();
+                if (!title || !content) return alert("모든 항목을 입력해주세요.");
+
+                fetch(`/episode/${epno}/edit`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ title, content })
+                })
+                    .then(res => {
+                        if (!res.ok) throw new Error("수정 실패");
+                        alert("수정 완료");
+                        document.getElementById('episodeEditModal').style.display = 'none';
+                        location.reload();
+                    })
+                    .catch(err => alert("에러 발생: " + err.message));
+            });
+        }
+
+        if (deleteBtn) {
+            deleteBtn.addEventListener("click", function () {
+                if (!confirm("정말 삭제하시겠습니까?")) return;
+
+                fetch(`/episode/${epno}/delete`, { method: 'DELETE' })
+                    .then(res => {
+                        if (!res.ok) throw new Error("삭제 실패");
+                        alert("삭제 완료");
+                        location.href = `/article?nno=${novelNno}`;
+                    })
+                    .catch(err => alert(err.message));
+            });
+        }
     }
 
     if (submitComment && commentInput && commentList) {

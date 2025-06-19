@@ -167,3 +167,24 @@ ul {
     margin-right: 5px;
     margin-top: 5px;
 }
+
+
+.control_with_back {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+#epControlBox button {
+    background-color: #444;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    margin-left: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#epControlBox button:hover {
+    background-color: #666;
+}
