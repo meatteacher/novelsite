@@ -246,4 +246,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 .catch(error => console.error("댓글 로딩 중 오류 발생:", error));
         }
     }
+    if (closeModal) {
+        closeModal.addEventListener("click", function () {
+            commentModal.classList.add("hidden");
+        });
+    }
+
 });

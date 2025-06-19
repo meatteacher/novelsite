@@ -26,7 +26,7 @@ public class NovelController {
 
     @ResponseBody
     @GetMapping("/mylist")
-    public List<Novel> getMyNovels(HttpSession session) {
+    public List<NovelResponse> getMyNovels(HttpSession session) {
         User loginUser = (User) session.getAttribute("loginUser");
         if (loginUser == null) return List.of();
         return novelService.getNovelsByUser(loginUser.getUno());

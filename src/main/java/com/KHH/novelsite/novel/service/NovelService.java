@@ -5,6 +5,7 @@ import com.KHH.novelsite.episode.repository.EpisodeRepository;
 import com.KHH.novelsite.novel.entity.Novel;
 import com.KHH.novelsite.novel.repository.NovelRepository;
 import com.KHH.novelsite.novel.request.NovelCreateRequest;
+import com.KHH.novelsite.novel.response.NovelResponse;
 import com.KHH.novelsite.user.entity.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -57,8 +58,10 @@ public class NovelService {
     }
 
     // 내 소설 리스트 조회 예시
-    public List<Novel> getNovelsByUser(Long uno) {
-        return novelRepository.findByUserUno(uno);
+    public List<NovelResponse> getNovelsByUser(Long uno) {
+        return novelRepository.findByUserUno(uno).stream()
+                .map(NovelResponse::new)
+                .toList(); // 또는 collect(Collectors.toList())
     }
 
     // 장르별 소설 리스트 조회 추가

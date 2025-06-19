@@ -27,9 +27,6 @@
                 <a th:href="@{/logout}" class="novel_upload">
                     작품등록
                 </a>
-                <a href="#" class="my_novel_manage">
-                    내작품 관리
-                </a>
             </div>
         </div>
         <div class="menu_icon">
@@ -198,9 +195,6 @@
                         </a>
                         <a th:href="@{/logout}" class="novel_upload">
                             작품등록
-                        </a>
-                        <a href="#" class="my_novel_manage">
-                            내작품 관리
                         </a>
                     </div>
                     <a href="#" class="search">
@@ -382,6 +376,22 @@
                     </div>
                 </div>
             </div>
+            <th:block th:if="${session.loginUser != null}">
+                <div class="novel_Sec">
+                    <div class="sec_head">
+                        <div class="sec_title">
+                            내가 등록한 작품 목록
+                        </div>
+                    </div>
+                    <div class="sec_list">
+                        <div class="swiper mySwiper swiper2">
+                            <div class="swiper-wrapper" id="myNovelList">
+                                <!-- 여기에 자바스크립트로 내 소설을 채워넣음 -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </th:block>
             <div class="novel_Sec">
                 <div class="sec_head">
                     <div class="sec_title">
@@ -390,7 +400,7 @@
                 </div>
                 <div class="sec_list">
                     <div class="swiper mySwiper swiper2">
-                        <div class="swiper-wrapper"></div>
+                        <div class="swiper-wrapper" id="finishedList"></div>
                     </div>
                 </div>
             </div>
@@ -402,7 +412,7 @@
                 </div>
                 <div class="sec_list">
                     <div class="swiper mySwiper swiper2">
-                        <div class="swiper-wrapper"></div>
+                        <div class="swiper-wrapper" id="alterHistoryList"></div>
                     </div>
                 </div>
             </div>
@@ -414,38 +424,8 @@
                 </div>
                 <div class="sec_list">
                     <div class="swiper mySwiper swiper2">
-                        <div class="swiper-wrapper"></div>
+                        <div class="swiper-wrapper" id="lifeList"></div>
                     </div>
-                </div>
-            </div>
-            <div class="novel_Sec">
-                <div class="sec_head">
-                    <div class="sec_title">
-                        이용권? 구매? 원하는대로 이용가능!
-                    </div>
-                </div>
-                <div class="sec_list">
-                    
-                </div>
-            </div>
-            <div class="novel_Sec">
-                <div class="sec_head">
-                    <div class="sec_title">
-                        단행본 할인 작품 챙겨 봐요📕
-                    </div>
-                </div>
-                <div class="sec_list">
-                    
-                </div>
-            </div>
-            <div class="novel_Sec">
-                <div class="sec_head">
-                    <div class="sec_title">
-                        후원쿠폰 베스트
-                    </div>
-                </div>
-                <div class="sec_list">
-                    
                 </div>
             </div>
         </div>

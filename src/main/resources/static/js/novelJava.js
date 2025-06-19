@@ -14,12 +14,12 @@ document.querySelector('.menu .close').addEventListener('click', function() {
 function tmp2(el) {
     let item = document.getElementsByClassName('nav_menu ');
     for(let i=0; i<item.length; i++) {
-        item[i].classList.remove('select')    
-    }       
+        item[i].classList.remove('select')
+    }
     el.classList.add('select')
 }
 
-// 탭메뉴 
+// 탭메뉴
 
 const navMenu = document.querySelectorAll(".nav_menu");
 const tabContent = document.querySelectorAll(".tab__content");
@@ -29,10 +29,10 @@ const tabContent = document.querySelectorAll(".tab__content");
 navMenu.forEach((item, index) => {
   // 3. 탭 버튼에 클릭 이벤트를 준다.
 item.addEventListener("click", (e) => {
-    // 4. 버튼을 a 태그에 만들었기 때문에, 
+    // 4. 버튼을 a 태그에 만들었기 때문에,
     // 태그의 기본 동작(링크 연결) 방지를 위해 preventDefault를 추가한다.
-    e.preventDefault(); // a 
-    
+    e.preventDefault(); // a
+
     // 5. 탭 내용 부분들을 forEach 문을 통해 한번씩 순회한다.
     tabContent.forEach((content) => {
       // 6. 탭 내용 부분들 전부 active 클래스를 제거한다.
@@ -176,9 +176,9 @@ var swiper1 = new Swiper(".swiper1", {
   slidesPerView: 3, // 한번에 몇개 판 보여줄지 결정. 1 이상의 정수
   slidesPerGroup: 1,// 한번에 몇개 판씩 넘길지 결정. 1 이상의 정수
   spaceBetween: 10, // 판 사이사이의 걸리
-  loop: true, 
+  loop: true,
 
-//   pagination: { 
+//   pagination: {
 //     el: ".swiper-pagination",
 //     type: "bullets", // 'bullets', 'fraction', 'progressbar' or 'custom'
 //     clickable: true, // 인디케이터/페이징 부분에 클릭 이벤트 달지 말지 결정
@@ -200,16 +200,16 @@ var swiper1 = new Swiper(".swiper1", {
   //     swiper1.autoplay.stop()
   // })
   // document.getElementsByClassName('mySwiper')[i].addEventListener('mouseleave', function(){
-  //     swiper1.autoplay.start()	
+  //     swiper1.autoplay.start()
   // })
   // }
 
-// 작품 리스트 돌리기 
+// 작품 리스트 돌리기
 
-let sec5 = document.getElementsByClassName('swiper-wrapper')[5];
+const finishedList = document.getElementById('finishedList');
 
 for(let i=0; i<4; i++) {
-  sec5.innerHTML += `
+    finishedList.innerHTML += `
     <div class="swiper-slide">
     <a href="01.article_page.html?itemNo=${NOVEL_LIST[i].item_no}">
         <div class="cover">
@@ -230,10 +230,10 @@ for(let i=0; i<4; i++) {
 }
 
 
-let sec6 = document.getElementsByClassName('swiper-wrapper')[6];
+const alterHistoryList = document.getElementById('alterHistoryList');
 
 for(let i=0; i<AlterHistory_List.length; i++) {
-  sec6.innerHTML += `
+    alterHistoryList.innerHTML += `
     <div class="swiper-slide">
     <a href="01.article_page.html?itemNo=${AlterHistory_List[i].item_no}">
         <div class="cover">
@@ -253,10 +253,10 @@ for(let i=0; i<AlterHistory_List.length; i++) {
   `;
 }
 
-let sec7 = document.getElementsByClassName('swiper-wrapper')[7];
+const lifeList = document.getElementById('lifeList');
 
 for(let i=0; i<Life_List.length; i++) {
-  sec7.innerHTML += `
+    lifeList.innerHTML += `
     <div class="swiper-slide">
     <a href="01.article_page.html?itemNo=${Life_List[i].item_no}">
         <div class="cover">
@@ -284,9 +284,9 @@ effect: 'slide', // 'slide', 'fade', 'cube', 'coverflow', 'flip', 'creative' or 
 slidesPerView: 7, // 한번에 몇개 판 보여줄지 결정. 1 이상의 정수
 slidesPerGroup: 1,// 한번에 몇개 판씩 넘길지 결정. 1 이상의 정수
 spaceBetween: 10, // 판 사이사이의 걸리
-loop: false, 
+loop: false,
 
-//   pagination: { 
+//   pagination: {
 //     el: ".swiper-pagination",
 //     type: "bullets", // 'bullets', 'fraction', 'progressbar' or 'custom'
 //     clickable: true, // 인디케이터/페이징 부분에 클릭 이벤트 달지 말지 결정
@@ -357,42 +357,6 @@ document.getElementById('novelSubmitBtn').onclick = function() {
     });
 }
 
-// "내작품 관리" 클릭 시 내 소설 리스트를 띄우는 이벤트
-document.querySelectorAll('.my_novel_manage').forEach(btn => {
-    btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        fetch('/novel/mylist')
-            .then(resp => resp.json())
-            .then(list => {
-                let html = '<h3>내 소설 목록</h3>';
-                list.forEach(novel => {
-                    html += `
-                        <div style="margin-bottom:15px;">
-                            <a href="/article?nno=${novel.nno}">
-                                <img src="${novel.coverimg}" style="width:50px;height:50px;object-fit:cover;border-radius:8px;">
-                                <b>${novel.title}</b>
-                            </a><br>
-                            <span>${novel.description}</span><br>
-                            <button class="continue-writing-btn" data-nno="${novel.nno}">이어쓰기</button>
-                        </div>
-                    `;
-                });
-                document.getElementById('myNovelListModal').innerHTML = html;
-                document.getElementById('myNovelListModal').style.display = 'block';
-
-                // 모달 열기
-                document.querySelectorAll('.continue-writing-btn').forEach(btn => {
-                    btn.addEventListener('click', function(e) {
-                        const nno = e.currentTarget.dataset.nno;
-                        const modal = document.getElementById('episodeWriteModal');
-                        modal.style.display = 'block';
-                        modal.querySelector('input[name="nno"]').value = nno;
-                    });
-                });
-            });
-    });
-});
-
 document.getElementById('episodeWriteForm').addEventListener('submit', function (e) {
     e.preventDefault();
 
@@ -410,4 +374,57 @@ document.getElementById('episodeWriteForm').addEventListener('submit', function 
             location.href = `/article?nno=${formData.get('nno')}`;
         })
         .catch(err => alert(err.message));
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    fetch('/novel/mylist')
+        .then(resp => resp.json())
+        .then(list => {
+            const wrapper = document.getElementById('myNovelList');
+            if (!wrapper) return;
+            if (list.length === 0) {
+                wrapper.innerHTML = `<div style="padding:1em;">등록한 작품이 없습니다.</div>`;
+                return;
+            }
+
+            list.forEach(novel => {
+                const slide = document.createElement('div');
+                slide.classList.add('swiper-slide');
+                slide.innerHTML = `
+                    <a href="/article?nno=${novel.nno}">
+                        <div class="cover">
+                            <img src="${novel.coverimg}" alt="표지">
+                        </div>
+                        <div class="slide_text2">
+                            <div class="tag">${novel.genre || "장르없음"}</div>
+                            <span class="slide_title2">${novel.title}</span>
+                            <div class="artist2">${novel.writer || "작가미상"}</div>
+                            <div class="count2">
+                                <img src="/img/count.png" alt="count">
+                                <div class="count">${novel.bookCount || 0}</div>
+                            </div>                          
+                        </div>
+                    </a>
+                    <button class="continueBtn" data-nno="${novel.nno}">이어쓰기</button>
+                `;
+                wrapper.appendChild(slide);
+            });
+
+            new Swiper(".swiper2", {
+                slidesPerView: 7,
+                slidesPerGroup: 1,
+                spaceBetween: 10,
+                loop: false
+            });
+        });
+});
+
+document.addEventListener('click', function (e) {
+    if (e.target.classList.contains('continueBtn')) {
+        e.preventDefault();
+        const nno = e.target.getAttribute('data-nno');
+        const form = document.getElementById('episodeWriteForm');
+        form.nno.value = nno; // hidden input 채움
+        document.getElementById('episodeWriteModal').style.display = 'block';
+    }
 });
