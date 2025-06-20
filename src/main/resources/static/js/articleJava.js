@@ -46,9 +46,10 @@ document.addEventListener('DOMContentLoaded', function () {
                             <div class="epi_num"><p>${ep.episodeno}화</p></div>
                             <div class="epi_info">
                                 <span>${ep.createdAt ? ep.createdAt.substring(0, 10) : ''}</span>
-                                <span>${ep.viewCount ?? 0}</span>
+                                <span>${ep.like ?? 0}</span>
                             </div>
                         </div>
+                        <div class="epi_title"><p>${ep.title}</p></div>
                     </a>
                 `;
             });

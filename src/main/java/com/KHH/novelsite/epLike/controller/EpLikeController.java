@@ -1,9 +1,13 @@
 package com.KHH.novelsite.epLike.controller;
 
 import com.KHH.novelsite.epLike.service.EpLikeService;
+import com.KHH.novelsite.episode.service.EpisodeService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
@@ -11,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 public class EpLikeController {
 
     private final EpLikeService epLikeService;
+    private final EpisodeService episodeService;
 
     // 좋아요 토글
     @PostMapping
@@ -26,5 +31,10 @@ public class EpLikeController {
     @GetMapping("/count")
     public long getLikeCount(@RequestParam Long epno) {
         return epLikeService.getLikeCount(epno);
+    }
+
+    @GetMapping("/novel/{nno}/episodes")
+    public List<Map<String, Object>> getEpisodesWithLike(@PathVariable Long nno) {
+        return episodeService.getEpisodesWithLikeCount(nno);
     }
 }

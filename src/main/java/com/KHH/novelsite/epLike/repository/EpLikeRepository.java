@@ -11,4 +11,7 @@ public interface EpLikeRepository extends JpaRepository<EpLike, Long> {
 
     // 2. 특정 에피소드의 좋아요 수
     long countByEpisode_Epno(Long epno);
+
+    // 3. 에피소드 삭제때 좋아요도 삭제
+    void deleteByEpisode_Epno(Long epno);
 }

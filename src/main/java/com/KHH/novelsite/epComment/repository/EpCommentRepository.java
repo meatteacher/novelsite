@@ -17,4 +17,7 @@ public interface EpCommentRepository extends JpaRepository<EpComment, Long> {
 
     // 4. 특정 유저가 특정 에피소드에 단 댓글 전체
     List<EpComment> findByUser_UnoAndEpisode_Epno(Long uno, Long epno);
+
+    // 5. 에피소드 삭제때 댓글도 삭제
+    void deleteByEpisode_Epno(Long epno);
 }
