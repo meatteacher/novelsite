@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/static/css/05.gesipan.css">
-    <script src="/static/js/5.gesipa_Data.js"></script>
+    <link rel="stylesheet" href="/css/05.gesipan.css">
+    <script src="/js/5.gesipa_Data.js"></script>
 </head>
 <body>
 <div id="wrap">
@@ -14,7 +14,7 @@
             <div class="left_manu">
                 <div class="prev">
                     <a href="javascript:history.back()">
-                        <img src="/static/img/back.png" alt="back">
+                        <img src="/img/back.png" alt="back">
                     </a>
                 </div>
             </div>
@@ -25,39 +25,39 @@
     <div class="main_Wrap">
         <div class="left_menu">
             <div class="logo">
-                <a href="00.main_page.html">
-                    <img src="/static/img/logo.webp" alt="joara_logo">
+                <a th:href="@{/}">
+                    <img src="/img/logo.webp" alt="joara_logo">
                 </a>
             </div>
             <div class="Q_menu">
                 <ul>
                     <li class="qmenu">
                         <a href="#">
-                            <img src="/static/img/bone.jpg" alt="bone">
+                            <img src="/img/bone.jpg" alt="bone">
                             <p>조아라본</p>
                         </a>
                     </li>
                     <li class="qmenu">
                         <a href="#">
-                            <img src="/static/img/gift.gif" alt="bone">
+                            <img src="/img/gift.gif" alt="bone">
                             <p>대여권선물</p>
                         </a>
                     </li>
                     <li class="qmenu">
-                        <a href="05.gesipan.html">
-                            <img src="/static/img/cumo.jpg" alt="bone">
+                        <a href="05.gesipan">
+                            <img src="/img/cumo.jpg" alt="bone">
                             <p>자유게시판</p>
                         </a>
                     </li>
                     <li class="qmenu">
                         <a href="#">
-                            <img src="/static/img/like.jpg" alt="bone">
+                            <img src="/img/like.jpg" alt="bone">
                             <p>선호장르</p>
                         </a>
                     </li>
                     <li class="qmenu">
                         <a href="#">
-                            <img src="/static/img/write.gif" alt="bone">
+                            <img src="/img/write.gif" alt="bone">
                             <p>작품등록</p>
                         </a>
                     </li>
@@ -67,31 +67,31 @@
                 <ul>
                     <li class="menuq">
                         <a href="#">
-                            <img src="/static/img/event.png" alt="">
+                            <img src="/img/event.png" alt="">
                             <p>이벤트</p>
                         </a>
                     </li>
                     <li class="menuq">
                         <a href="#">
-                            <img src="/static/img/fnish.png" alt="">
+                            <img src="/img/fnish.png" alt="">
                             <p>완결작품</p>
                         </a>
                     </li>
                     <li class="menuq">
                         <a href="#">
-                            <img src="/static/img/new.png" alt="">
+                            <img src="/img/new.png" alt="">
                             <p>최신작품</p>
                         </a>
                     </li>
                     <li class="menuq">
                         <a href="#">
-                            <img src="/static/img/best.png" alt="">
+                            <img src="/img/best.png" alt="">
                             <p>베스트</p>
                         </a>
                     </li>
                     <li class="menuq">
                         <a href="#">
-                            <img src="/static/img/savepo.png" alt="">
+                            <img src="/img/savepo.png" alt="">
                             <p>보관함</p>
                         </a>
                     </li>
@@ -127,11 +127,11 @@
                 </ul>
             </div>
             <div class="write_btn">
-                <button>글쓰기</button>
+                <button id="goWriteBtn">글쓰기</button>
             </div>
         </div>
     </div>
 </div>
-<script src="/static/js/05.gesipan.js"></script>
+<script src="/js/05.gesipan.js"></script>
 </body>
 </html>

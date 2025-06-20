@@ -328,15 +328,14 @@ function loadGenreList() {
 }
 
 // 작품등록 버튼 누르면 모달 + 표지리스트 로딩
-document.querySelectorAll('.novel_upload').forEach(btn => {
-    btn.addEventListener('click', function(e) {
+document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('novel_upload')) {
         e.preventDefault();
         document.getElementById('novelModal').style.display = 'block';
         loadCoverList();
         loadGenreList();
-    });
+    }
 });
-
 document.getElementById('novelSubmitBtn').onclick = function() {
     const form = document.getElementById('novelForm');
     const formData = new FormData(form);
@@ -383,7 +382,14 @@ document.addEventListener("DOMContentLoaded", function () {
             const wrapper = document.getElementById('myNovelList');
             if (!wrapper) return;
             if (list.length === 0) {
-                wrapper.innerHTML = `<div style="padding:1em;">등록한 작품이 없습니다.</div>`;
+                wrapper.innerHTML = `
+                                    <div class="empty-novel-box">
+                                        <div class="slide_text2">
+                                            <p>등록된 작품이 없습니다! 새로운 소설작가가 되어주세요!</p>
+                                            <button type="button" class="novel_upload">작품 등록하기</button>
+                                        </div>
+                                    </div>
+                                    `;
                 return;
             }
 
