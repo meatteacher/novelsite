@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="/js/novelData.js"></script>
 </head>
-<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+<body oncontextmenu="return true" onselectstart="return false" ondragstart="return false">
 <div id="wrap">
     <div class="menu">
         <button class="close">X</button>
@@ -446,8 +446,8 @@
     </div>
 </div>
 
-<div id="novelModal" style="display:none; position:fixed; top:30%; left:30%; background:white; border:1px solid #ccc; padding:20px; z-index:9999;">
-    <form id="novelForm" enctype="multipart/form-data">
+<div id="novelModal" class="novel-modal">
+    <form id="novelForm" class="novel-form" enctype="multipart/form-data">
         <label>제목: <input type="text" name="title" required></label><br>
         <label>소개: <textarea name="description"></textarea></label><br>
         <label>장르:
@@ -458,17 +458,14 @@
                 </th:block>
             </select>
         </label><br>
-        <label>표지 업로드: <input type="file" name="coverImg"></label><br>
-        <span style="font-size:12px;">또는 아래에서 선택</span><br>
-        <select name="coverSelect" id="coverSelect">
-            <option value="">표지 선택 안함</option>
-        </select>
-        <br>
+        <label>표지 업로드: <input type="file" name="coverImg"></label><br><br>
         <label>1화 제목: <input type="text" name="firstEpisodeTitle" required></label><br>
-        <label>1화 내용: <textarea name="firstEpisodeContent" required></textarea></label><br>
-        <br>
-        <button type="button" id="novelSubmitBtn">등록</button>
-        <button type="button" onclick="closeModal()">취소</button>
+        <label>1화 내용: <textarea name="firstEpisodeContent" required></textarea></label><br><br>
+
+        <div class="novel-buttons">
+            <button type="button" id="novelSubmitBtn">등록</button>
+            <button type="button" onclick="closeModal()">취소</button>
+        </div>
     </form>
 </div>
 

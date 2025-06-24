@@ -628,3 +628,48 @@ color: #3a3a3a;
     color :#3a3a3a;
 }
 
+/* 모달 CSS */
+
+.novel-modal {
+    display: none;
+    position: fixed;
+    top: 20%;
+    left: 25%;
+    width: 600px;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 30px;
+    z-index: 9999;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* 폼 내부 정리 */
+.novel-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+/* 텍스트 입력창 스타일 */
+.novel-form input[type="text"],
+.novel-form textarea,
+.novel-form select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 4px;
+    box-sizing: border-box;
+    resize: none;
+}
+
+/* 버튼 영역 정렬 */
+.novel-buttons {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.novel-buttons button {
+    padding: 8px 16px;
+    margin-left: 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
