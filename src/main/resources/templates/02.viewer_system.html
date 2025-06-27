@@ -93,17 +93,26 @@
     </div>
 </div>
 <!-- 에피소드 수정용 모달 -->
-<div id="episodeEditModal" style="display:none; position:fixed; top:25%; left:30%; background:white; border:1px solid #ccc; padding:20px; z-index:9999;">
-    <h3>에피소드 수정</h3>
+<div id="episodeEditModal" class="modal">
+    <h3 class="modal-title">에피소드 수정</h3>
     <form id="episodeEditForm">
-        <label>제목: <input type="text" name="title" required></label><br>
-        <label>내용:<br>
-            <textarea name="content" rows="8" cols="50" required></textarea>
-        </label><br><br>
-        <button type="submit">수정하기</button>
-        <button type="button" onclick="document.getElementById('episodeEditModal').style.display='none'">취소</button>
+        <label class="modal-label">
+            제목:
+            <input type="text" name="title" required class="modal-input">
+        </label>
+
+        <label class="modal-label">
+            내용:
+            <textarea name="content" required class="modal-textarea"></textarea>
+        </label>
+
+        <div class="modal-buttons">
+            <button type="submit" class="btn btn-submit">수정하기</button>
+            <button type="button" class="btn btn-cancel" onclick="document.getElementById('episodeEditModal').style.display='none'">취소</button>
+        </div>
     </form>
 </div>
+
 
 <script th:inline="javascript">
     const loginUserId = /*[[${loginUserId}]]*/ 0;

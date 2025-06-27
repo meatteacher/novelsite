@@ -329,7 +329,8 @@ function loadGenreList() {
 
 // 작품등록 버튼 누르면 모달 + 표지리스트 로딩
 document.addEventListener('click', function(e) {
-    if (e.target.classList.contains('novel_upload')) {
+    const uploadBtn = e.target.closest('.novel_upload'); // 부모 중에서 찾아줘
+    if (uploadBtn) {
         e.preventDefault();
         document.getElementById('novelModal').style.display = 'block';
         loadCoverList();

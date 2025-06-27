@@ -119,6 +119,15 @@ ul {
     height: 46px;
 }
 
+.login-welcome > a{
+    display: flex;
+    color: inherit;
+    text-decoration: none;
+    align-items: center;
+}
+
+
+
 .Q_menu {
     border-bottom: 1px solid #ededed;
     padding-bottom: 16px;

@@ -188,3 +188,77 @@ ul {
 #epControlBox button:hover {
     background-color: #666;
 }
+
+/* 수정 모달 */
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 25%;
+    left: 30%;
+    width: 500px;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 24px;
+    z-index: 9999;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+}
+
+.modal-title {
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+.modal-label {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #333;
+}
+
+.modal-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.modal-textarea {
+    width: 100%;
+    height: 300px; /* 고정 크기 */
+    padding: 10px;
+    font-size: 14px;
+    resize: none;  /* 크기 고정 */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 6px;
+}
+
+.modal-buttons {
+    text-align: right;
+    margin-top: 10px;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    border: none;
+}
+
+.btn-submit {
+    background-color: #28a745;
+    color: white;
+    margin-right: 10px;
+}
+
+.btn-cancel {
+    background-color: #ccc;
+    color: #333;
+}

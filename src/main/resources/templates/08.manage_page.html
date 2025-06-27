@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/08.manage_page.css">
+</head>
+<body oncontextmenu="return true" onselectstart="return false" ondragstart="return false">
+<div id="wrap">
+    <div class="menu">
+        <button class="close">X</button>
+        <div class="my_room">
+            <div th:if="${session.loginUser == null}">
+                <h3><a th:href="@{/login}" class="login">로그인</a>을 해주세요</h3>
+                <div class="bigroom">
+                    <div class="room1">이벤트</div>
+                    <div class="room1">공지사항</div>
+                </div>
+            </div>
+            <div class="login-welcome" th:if="${session.loginUser != null}">
+                <span>
+                    환영합니다, <span th:text="${session.loginUser.nickname}">닉네임</span>님!
+                </span>
+                <a th:href="@{/logout}" class="novel_upload">
+                    작품등록
+                </a>
+            </div>
+        </div>
+        <div class="menu_icon">
+            <ul>
+                <li>
+                    <a href="#">
+                        <div class="img">
+                            <img src="/img/itemshp.png" alt="아이템샵">
+                        </div>
+                        <p>아이템샵</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="img">
+                            <img src="/img/refill.png" alt="리필">
+                        </div>
+                        <p>무료 충전소</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="img">
+                            <img src="/img/sunho.png" alt="선호">
+                        </div>
+                        <p>선호장르</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="img">
+                            <img src="/img/supyung.png" alt="서평">
+                        </div>
+                        <p>작품 서평</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="img">
+                            <img src="/img/post.png" alt="포스트">
+                        </div>
+                        <p>조아라 포스트</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="img">
+                            <img src="/img/gesipan.png" alt="">
+                        </div>
+                        <p>자유게시판</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="img">
+                            <img src="/img/cpdeongrock.png" alt="쿠폰등록">
+                        </div>
+                        <p>쿠폰 등록</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="img">
+                            <img src="/img/recommend.png" alt="뭐읽지">
+                        </div>
+                        <p>뭐 읽을까?
+                        </p>
+                    </a>
+                </li>
+            </ul>
+            <div class="stu_banner">
+                <a href="#">
+                    <img src="/img/studio.png" alt="J스튜디오">
+                </a>
+            </div>
+        </div>
+        <div class="help_call">
+            <div class="jemock">
+                <p>고객센터</p>
+                <img src="/img/oligi.png" alt="메뉴올리기">
+            </div>
+            <div class="help_list">
+                <ul>
+                    <li>
+                        <a href="#">
+                            자주하는 질문
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            1:1 문의
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            작가 지원 정책
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            언론 보도
+                        </a>
+                    </li>
+                </ul>
+                <div class="information">
+                    <div class="service-info">
+                        <dl>
+                            <dt> 고객센터</dt>
+                            <dd>1544-5935</dd>
+                        </dl>
+                        <dl>
+                            <dt> 운영시간</dt>
+                            <dd> 평일 10:00 ~ 17:00 (주말 및 공휴일 휴무)</dd>
+                        </dl>
+                        <dl>
+                            <dt>점심시간</dt>
+                            <dd>12:30 ~ 13:30</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="login_pan">
+            <ul>
+                <li>
+                    <a href="03.joinHelldiver.html">
+                        회원가입
+                    </a>
+                </li>
+                <li>
+                    <a href="04.loginhaera.html">
+                        로그인
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="main_Wrap">
+        <div class="left_menu">
+            <div class="logo">
+                <a th:href="@{/}">
+                    <img src="/img/logo.webp" alt="joara_logo">
+                </a>
+            </div>
+            <div class="Q_menu">
+                <ul>
+                    <li class="qmenu">
+                        <a href="#">
+                            <img src="/img/bone.jpg" alt="bone">
+                            <p>조아라본</p>
+                        </a>
+                    </li>
+                    <li class="qmenu">
+                        <a href="#">
+                            <img src="/img/gift.gif" alt="bone">
+                            <p>대여권선물</p>
+                        </a>
+                    </li>
+                    <li class="qmenu">
+                        <a href="05.gesipan">
+                            <img src="/img/cumo.jpg" alt="bone">
+                            <p>자유게시판</p>
+                        </a>
+                    </li>
+                    <li class="qmenu">
+                        <a href="#">
+                            <img src="/img/like.jpg" alt="bone">
+                            <p>선호장르</p>
+                        </a>
+                    </li>
+                    <li class="qmenu">
+                        <a href="#">
+                            <img src="/img/write.gif" alt="bone">
+                            <p>작품등록</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu_Q">
+                <ul>
+                    <li class="menuq">
+                        <a href="#">
+                            <img src="/img/event.png" alt="">
+                            <p>이벤트</p>
+                        </a>
+                    </li>
+                    <li class="menuq">
+                        <a href="#">
+                            <img src="/img/fnish.png" alt="">
+                            <p>완결작품</p>
+                        </a>
+                    </li>
+                    <li class="menuq">
+                        <a href="#">
+                            <img src="/img/new.png" alt="">
+                            <p>최신작품</p>
+                        </a>
+                    </li>
+                    <li class="menuq">
+                        <a href="#">
+                            <img src="/img/best.png" alt="">
+                            <p>베스트</p>
+                        </a>
+                    </li>
+                    <li class="menuq">
+                        <a href="#">
+                            <img src="/img/savepo.png" alt="">
+                            <p>보관함</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="store">
+                <ul>
+                    <li class="store">아이템샵</li>
+                    <li class="store">딱지무료충전</li>
+                </ul>
+            </div>
+        </div>
+        <div class="main_R">
+            <div class="admin_tabs">
+                <button onclick="showTab('episodes')">에피소드</button>
+                <button onclick="showTab('boards')">자유게시판</button>
+                <button onclick="showTab('comments')">댓글</button>
+            </div>
+
+            <div id="episodes" class="admin_tab_content">
+                <h2>에피소드 목록</h2>
+                <table>
+                    <tr><th>ID</th><th>제목</th><th>삭제</th></tr>
+                    <tr th:each="ep : ${episodeList}">
+                        <td th:text="${ep.epno}"></td>
+                        <td th:text="${ep.title}"></td>
+                        <td>
+                            <form method="post" th:action="@{/admin/episode/delete}">
+                                <input type="hidden" name="epno" th:value="${ep.epno}">
+                                <button type="submit">삭제</button>
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="boards" class="admin_tab_content" style="display:none">
+                <h2>자유게시판 목록</h2>
+                <table>
+                    <tr><th>ID</th><th>제목</th><th>삭제</th></tr>
+                    <tr th:each="b : ${boardList}">
+                        <td th:text="${b.bno}"></td>
+                        <td th:text="${b.title}"></td>
+                        <td>
+                            <form method="post" th:action="@{/admin/board/delete}">
+                                <input type="hidden" name="bno" th:value="${b.bno}">
+                                <button type="submit">삭제</button>
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="comments" class="admin_tab_content" style="display:none">
+                <h2>댓글 목록</h2>
+                <table>
+                    <tr><th>ID</th><th>내용</th><th>삭제</th></tr>
+                    <tr th:each="c : ${commentList}">
+                        <td th:text="${c.cno}"></td>
+                        <td th:text="${c.content}"></td>
+                        <td>
+                            <form method="post" th:action="@{/admin/comment/delete}">
+                                <input type="hidden" name="cno" th:value="${c.cno}">
+                                <button type="submit">삭제</button>
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="main_footer">
+            <div class="inner_main_foot">
+                <div class="calling">
+                    <div class="tit">고객센터</div>
+                    <div class="cunect">
+                        <p>customer@joara.com <span>/</span> 1544-5935</p>
+                        <div class="time">운영시간 - 평일 10:00 ~ 17:00 (주말 및 공휴일 휴무) / 점심시간 - 12:30 ~ 13:30</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="info_footer"></div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="/js/08.manage_page.js"></script>
+</body>
+</html>

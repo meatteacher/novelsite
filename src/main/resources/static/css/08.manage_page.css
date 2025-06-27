@@ -332,39 +332,6 @@ dd {
     justify-content: center; /* 가운데 정렬 */
 }
 
-
-.board_write_box {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 20px;
-
-    margin-top: 100px;
-}
-
-.board_write_box h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.board_write_box .form_row {
-    margin-bottom: 15px;
-}
-
-.board_write_box label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.submit_btn {
-    background-color: #222;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    width: 100%;
-    cursor: pointer;
-}
-
 /* 푸터 */
 
 .footer {
@@ -423,70 +390,4 @@ dd {
     color :#3a3a3a;
 }
 
-/* 글쓰기 */
-
-.board_write_box {
-    width: 100%;
-    background: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 30px;
-    box-sizing: border-box;
-}
-
-/* 제목 */
-.board_write_box h2 {
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-}
-
-/* 각 폼 요소 줄 간격 */
-.form_row {
-    margin-bottom: 20px;
-}
-
-/* 라벨 */
-.form_row label {
-    display: block;
-    font-size: 16px;
-    margin-bottom: 10px;
-    font-weight: 600;
-    color: #555;
-}
-
-/* 입력창 - 제목 */
-.form_row input {
-    width: 100%;
-    padding: 12px;
-    font-size: 15px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    box-sizing: border-box;
-}
-
-/* 입력창 - 내용 (textarea) */
-.form_row textarea {
-    width: 100%;
-    height: 400px;   /* 기존보다 크게 */
-    padding: 12px;
-    font-size: 15px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    resize: vertical;
-    box-sizing: border-box;
-}
-
-/* 버튼 영역 */
-.submit_btn {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    font-size: 15px;
-    border-radius: 6px;
-    cursor: pointer;
-    width: 100%;
-}
+/* 관리창 */

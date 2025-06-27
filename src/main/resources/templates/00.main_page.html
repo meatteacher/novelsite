@@ -196,6 +196,13 @@
                         <a href="#" class="novel_upload">
                             작품등록
                         </a>
+
+                        <!-- 🔥 관리자 전용 메뉴 -->
+                        <a th:if="${session.loginUser.role.name() == 'ADIMIN'}"
+                           th:href="@{/admin/manage}"
+                           class="admin_page">
+                            관리자 전용 메뉴
+                        </a>
                     </div>
                     <a href="#" class="search">
                         <img src="/img/ico_top_search.png" alt="search_icon">
@@ -260,10 +267,18 @@
                         </a>
                     </li>
                     <li class="qmenu">
-                        <a href="#">
-                            <img src="/img/write.gif" alt="bone">
-                            <p>작품등록</p>
-                        </a>
+                        <div class="login-welcome" th:if="${session.loginUser == null}">
+                            <a th:href="@{/login}" class="login">
+                                <img src="/img/write.gif" alt="bone">
+                                <p>작품등록</p>
+                            </a>
+                        </div>
+                        <div class="login-welcome" th:if="${session.loginUser != null}">
+                            <a href="#" class="novel_upload">
+                                <img src="/img/write.gif" alt="bone">
+                                <p>작품등록</p>
+                            </a>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -470,18 +485,28 @@
 </div>
 
 <!-- 이어쓰기 모달 -->
-<div id="episodeWriteModal" style="display:none; position:fixed; top:25%; left:30%; background:white; border:1px solid #ccc; padding:20px; z-index:9999;">
-    <h3>에피소드 이어쓰기</h3>
+<div id="episodeWriteModal" class="modal">
+    <h3 class="modal-title">에피소드 이어쓰기</h3>
     <form id="episodeWriteForm">
         <input type="hidden" name="nno">
-        <label>제목: <input type="text" name="title" required></label><br>
-        <label>내용:<br>
-            <textarea name="content" rows="8" cols="50" required></textarea>
-        </label><br><br>
-        <button type="submit">작성</button>
-        <button type="button" onclick="document.getElementById('episodeWriteModal').style.display='none'">취소</button>
+
+        <label class="modal-label">
+            제목:
+            <input type="text" name="title" required class="modal-input">
+        </label>
+
+        <label class="modal-label">
+            내용:
+            <textarea name="content" required class="modal-textarea"></textarea>
+        </label>
+
+        <div class="modal-buttons">
+            <button type="submit" class="btn btn-submit">작성</button>
+            <button type="button" class="btn btn-cancel" onclick="document.getElementById('episodeWriteModal').style.display='none'">취소</button>
+        </div>
     </form>
 </div>
+
 
 
 <div id="myNovelListModal" style="display:none; position:fixed; top:10%; left:30%; width:400px; background:white; border:1px solid #ccc; padding:20px; z-index:1000;">

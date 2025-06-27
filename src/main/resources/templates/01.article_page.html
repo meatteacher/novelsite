@@ -69,10 +69,18 @@
                         </a>
                     </li>
                     <li class="qmenu">
-                        <a href="#">
-                            <img src="/img/write.gif" alt="bone">
-                            <p>작품등록</p>
-                        </a>
+                        <div class="login-welcome" th:if="${session.loginUser == null}">
+                            <a th:href="@{/login}" class="login">
+                                <img src="/img/write.gif" alt="bone">
+                                <p>작품등록</p>
+                            </a>
+                        </div>
+                        <div class="login-welcome" th:if="${session.loginUser != null}">
+                            <a href="#" class="novel_upload">
+                                <img src="/img/write.gif" alt="bone">
+                                <p>작품등록</p>
+                            </a>
+                        </div>
                     </li>
                 </ul>
             </div>

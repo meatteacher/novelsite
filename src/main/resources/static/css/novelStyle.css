@@ -324,6 +324,19 @@ color: #3a3a3a;
     height: 28px ;
 }
 
+.login-welcome > a{
+    display: flex;
+    color: inherit;
+    text-decoration: none;
+    align-items: center;
+}
+
+.admin_page {
+    font-weight: bold;
+    color: red;
+    margin-left: 10px;
+}
+
 /* 본문 */
 
 .main_R {
@@ -633,7 +646,7 @@ color: #3a3a3a;
 .novel-modal {
     display: none;
     position: fixed;
-    top: 20%;
+    top: 10%;
     left: 25%;
     width: 600px;
     background: white;
@@ -656,9 +669,12 @@ color: #3a3a3a;
 .novel-form select {
     width: 100%;
     padding: 8px;
-    margin-top: 4px;
     box-sizing: border-box;
     resize: none;
+}
+
+.novel-form textarea {
+    height: 100px;
 }
 
 /* 버튼 영역 정렬 */
@@ -671,5 +687,68 @@ color: #3a3a3a;
     padding: 8px 16px;
     margin-left: 10px;
     font-size: 14px;
+    cursor: pointer;
+}
+
+/* 이어쓰기 모달 */
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 25%;
+    left: 30%;
+    width: 500px;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    z-index: 9999;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.modal-title {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.modal-label {
+    display: block;
+    margin-bottom: 20px;
+}
+
+.modal-input {
+    width: 100%;
+    padding: 6px;
+    margin-top: 5px;
+}
+
+.modal-textarea {
+    width: 100%;
+    height: 300px;         /* 고정 크기 */
+    padding: 8px;
+    resize: none;          /* 크기 조절 못하게 고정 */
+    margin-top: 5px;
+}
+
+.modal-buttons {
+    text-align: right;
+}
+
+.btn {
+    padding: 8px 16px;
+    font-size: 14px;
+}
+
+.btn-submit {
+    margin-right: 8px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-cancel {
+    background-color: #ccc;
+    border: none;
     cursor: pointer;
 }

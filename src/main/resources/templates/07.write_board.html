@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="/css/novelStyle.css">
+    <link rel="stylesheet" href="/css/07.write_board.css">
 </head>
-<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+<body oncontextmenu="return true" onselectstart="return false" ondragstart="return false">
 <div id="wrap">
   <div class="menu">
     <button class="close">X</button>
@@ -161,68 +161,68 @@
       </ul>
     </div>
   </div>
-  <div class="header">
-    <div class="topHeader">
-      <div class="icon_box">
-        <div class="left_Icon">
-          <a href="#">
-            <img src="/img/novel_btn.png" alt="novel_button">
-          </a>
-          <a href="#">
-            <img src="/img/comix_btn.png" alt="comix_button">
-          </a>
-        </div>
-        <div class="right_Icon">
-          <!-- 로그인/회원가입 (로그아웃 상태에서만 보임) -->
-          <div th:if="${session.loginUser == null}">
-            <a th:href="@{/login}" class="login">
-              로그인
-            </a>
-            <a th:href="@{/register}" class="join">
-              회원가입
-            </a>
-          </div>
-          <!-- 환영 메시지 + 로그아웃 (로그인 상태에서만 보임) -->
-          <div class="login-welcome" th:if="${session.loginUser != null}">
-                        <span>
-                            환영합니다, <span th:text="${session.loginUser.nickname}">닉네임</span>님!
-                        </span>
-            <a th:href="@{/logout}" class="logout">
-              로그아웃
-            </a>
-            <a href="#" class="novel_upload">
-              작품등록
-            </a>
-          </div>
-          <a href="#" class="search">
-            <img src="/img/ico_top_search.png" alt="search_icon">
-          </a>
-          <a href="#" class="menu-toggle">
-            <img src="/img/ico_top_menu.png" alt="menu">
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="nav">
-      <ul>
-        <li class="nav_menu select" onclick="tmp2(this)">
-          <a href="#">추천</a>
-        </li>
-        <li class="nav_menu " onclick="tmp2(this)">
-          <a href="#">판타지</a>
-        </li>
-        <li class="nav_menu " onclick="tmp2(this)">
-          <a href="#">로맨스</a>
-        </li>
-        <li class="nav_menu " onclick="tmp2(this)">
-          <a href="#">대체역사</a>
-        </li>
-        <li class="nav_menu " onclick="tmp2(this)">
-          <a href="#">일상</a>
-        </li>
-      </ul>
-    </div>
-  </div>
+<!--  <div class="header">-->
+<!--    <div class="topHeader">-->
+<!--      <div class="icon_box">-->
+<!--        <div class="left_Icon">-->
+<!--          <a href="#">-->
+<!--            <img src="/img/novel_btn.png" alt="novel_button">-->
+<!--          </a>-->
+<!--          <a href="#">-->
+<!--            <img src="/img/comix_btn.png" alt="comix_button">-->
+<!--          </a>-->
+<!--        </div>-->
+<!--        <div class="right_Icon">-->
+<!--          &lt;!&ndash; 로그인/회원가입 (로그아웃 상태에서만 보임) &ndash;&gt;-->
+<!--          <div th:if="${session.loginUser == null}">-->
+<!--            <a th:href="@{/login}" class="login">-->
+<!--              로그인-->
+<!--            </a>-->
+<!--            <a th:href="@{/register}" class="join">-->
+<!--              회원가입-->
+<!--            </a>-->
+<!--          </div>-->
+<!--          &lt;!&ndash; 환영 메시지 + 로그아웃 (로그인 상태에서만 보임) &ndash;&gt;-->
+<!--          <div class="login-welcome" th:if="${session.loginUser != null}">-->
+<!--                        <span>-->
+<!--                            환영합니다, <span th:text="${session.loginUser.nickname}">닉네임</span>님!-->
+<!--                        </span>-->
+<!--            <a th:href="@{/logout}" class="logout">-->
+<!--              로그아웃-->
+<!--            </a>-->
+<!--            <a href="#" class="novel_upload">-->
+<!--              작품등록-->
+<!--            </a>-->
+<!--          </div>-->
+<!--          <a href="#" class="search">-->
+<!--            <img src="/img/ico_top_search.png" alt="search_icon">-->
+<!--          </a>-->
+<!--          <a href="#" class="menu-toggle">-->
+<!--            <img src="/img/ico_top_menu.png" alt="menu">-->
+<!--          </a>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="nav">-->
+<!--      <ul>-->
+<!--        <li class="nav_menu select" onclick="tmp2(this)">-->
+<!--          <a href="#">추천</a>-->
+<!--        </li>-->
+<!--        <li class="nav_menu " onclick="tmp2(this)">-->
+<!--          <a href="#">판타지</a>-->
+<!--        </li>-->
+<!--        <li class="nav_menu " onclick="tmp2(this)">-->
+<!--          <a href="#">로맨스</a>-->
+<!--        </li>-->
+<!--        <li class="nav_menu " onclick="tmp2(this)">-->
+<!--          <a href="#">대체역사</a>-->
+<!--        </li>-->
+<!--        <li class="nav_menu " onclick="tmp2(this)">-->
+<!--          <a href="#">일상</a>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--    </div>-->
+<!--  </div>-->
   <div class="main_Wrap">
     <div class="left_menu">
       <div class="logo">
