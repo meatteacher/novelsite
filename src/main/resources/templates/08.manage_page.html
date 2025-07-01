@@ -247,7 +247,8 @@
             <div class="admin_tabs">
                 <button onclick="showTab('episodes')">에피소드</button>
                 <button onclick="showTab('boards')">자유게시판</button>
-                <button onclick="showTab('comments')">댓글</button>
+                <button onclick="showTab('boardComments')">게시판 댓글</button>
+                <button onclick="showTab('epComments')">에피소드 댓글</button>
             </div>
 
             <div id="episodes" class="admin_tab_content">
@@ -272,11 +273,28 @@
                 <table>
                     <tr><th>ID</th><th>제목</th><th>삭제</th></tr>
                     <tr th:each="b : ${boardList}">
-                        <td th:text="${b.bno}"></td>
-                        <td th:text="${b.title}"></td>
+                        <td th:text="${b.boardno}">번호</td>
+                        <td th:text="${b.title}">제목</td>
                         <td>
                             <form method="post" th:action="@{/admin/board/delete}">
-                                <input type="hidden" name="bno" th:value="${b.bno}">
+                                <input type="hidden" name="bno" th:value="${b.boardno}" />
+                                <button type="submit">삭제</button>
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <!-- 게시판 댓글 목록 -->
+            <div id="boardComments" class="admin_tab_content" style="display:none">
+                <h2>게시판 댓글 목록</h2>
+                <table>
+                    <tr><th>ID</th><th>내용</th><th>삭제</th></tr>
+                    <tr th:each="c : ${boardCommentList}">
+                        <td th:text="${c.boardcommentno}"></td>
+                        <td th:text="${c.content}"></td>
+                        <td>
+                            <form method="post" th:action="@{/admin/board-comment/delete}">
+                                <input type="hidden" name="cno" th:value="${c.boardcommentno}">
                                 <button type="submit">삭제</button>
                             </form>
                         </td>
@@ -284,16 +302,17 @@
                 </table>
             </div>
 
-            <div id="comments" class="admin_tab_content" style="display:none">
-                <h2>댓글 목록</h2>
+            <!-- 에피소드 댓글 목록 -->
+            <div id="epComments" class="admin_tab_content" style="display:none">
+                <h2>에피소드 댓글 목록</h2>
                 <table>
                     <tr><th>ID</th><th>내용</th><th>삭제</th></tr>
-                    <tr th:each="c : ${commentList}">
-                        <td th:text="${c.cno}"></td>
+                    <tr th:each="c : ${epCommentList}">
+                        <td th:text="${c.epcommentno}"></td>
                         <td th:text="${c.content}"></td>
                         <td>
-                            <form method="post" th:action="@{/admin/comment/delete}">
-                                <input type="hidden" name="cno" th:value="${c.cno}">
+                            <form method="post" th:action="@{/admin/ep-comment/delete}">
+                                <input type="hidden" name="cno" th:value="${c.epcommentno}">
                                 <button type="submit">삭제</button>
                             </form>
                         </td>

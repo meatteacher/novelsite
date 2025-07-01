@@ -328,7 +328,6 @@ dd {
 .main_R {
     flex: 1;
     padding: 40px;
-    display: flex;
     justify-content: center; /* 가운데 정렬 */
 }
 
@@ -391,3 +390,84 @@ dd {
 }
 
 /* 관리창 */
+
+/* 탭 버튼 영역 */
+.admin_tabs {
+    display: flex;
+    gap: 10px;
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.admin_tabs button {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-bottom: none;
+    border-radius: 10px 10px 0 0;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.admin_tabs button:hover {
+    background-color: #eee;
+}
+
+.admin_tabs button.active {
+    background-color: white;
+    border-bottom: 2px solid white;
+}
+
+/* 전체 wrapper 조정 */
+.main_R {
+    padding: 20px;
+    flex-grow: 1;
+    background-color: #fff;
+    border-left: 1px solid #eee;
+}
+
+/* 탭 콘텐츠 */
+.admin_tab_content {
+    display: none;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 0 10px 10px 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.admin_tab_content.active {
+    display: block;
+}
+
+/* 테이블 스타일 */
+.admin_tab_content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.admin_tab_content th, .admin_tab_content td {
+    padding: 12px 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.admin_tab_content th {
+    background-color: #f1f1f1;
+}
+
+/* 삭제 버튼 */
+.admin_tab_content button[type="submit"] {
+    background-color: #ff5252;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.admin_tab_content button[type="submit"]:hover {
+    background-color: #d93939;
+}

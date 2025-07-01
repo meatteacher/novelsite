@@ -2,6 +2,8 @@ package com.KHH.novelsite.epComment.repository;
 
 import com.KHH.novelsite.epComment.entity.EpComment;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
@@ -19,5 +21,7 @@ public interface EpCommentRepository extends JpaRepository<EpComment, Long> {
     List<EpComment> findByUser_UnoAndEpisode_Epno(Long uno, Long epno);
 
     // 5. 에피소드 삭제때 댓글도 삭제
+    @Modifying
+    @Query("DELETE FROM EpComment c WHERE c.episode.epno = :epno")
     void deleteByEpisode_Epno(Long epno);
 }

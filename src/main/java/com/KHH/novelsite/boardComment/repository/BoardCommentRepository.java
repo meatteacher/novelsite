@@ -2,6 +2,8 @@ package com.KHH.novelsite.boardComment.repository;
 
 import com.KHH.novelsite.boardComment.entity.BoardComment;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
@@ -14,4 +16,9 @@ public interface BoardCommentRepository extends JpaRepository<BoardComment, Long
 
     // 3. 특정 게시글의 댓글 개수
     long countByBoard_Boardno(Long boardno);
+
+    // 4. 게시글 삭제시 댓글도 삭제
+    @Modifying
+    @Query("DELETE FROM BoardComment bc WHERE bc.board.boardno = :boardno")
+    void deleteByBoard_Boardno(Long boardno);
 }

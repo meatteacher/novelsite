@@ -2,6 +2,8 @@ package com.KHH.novelsite.epLike.repository;
 
 import com.KHH.novelsite.epLike.entity.EpLike;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.Optional;
 
@@ -13,5 +15,7 @@ public interface EpLikeRepository extends JpaRepository<EpLike, Long> {
     long countByEpisode_Epno(Long epno);
 
     // 3. 에피소드 삭제때 좋아요도 삭제
+    @Modifying
+    @Query("DELETE FROM EpLike l WHERE l.episode.epno = :epno")
     void deleteByEpisode_Epno(Long epno);
 }
